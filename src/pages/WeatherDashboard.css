@@ -1,0 +1,17 @@
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    text-shadow: var(--title-shadow);
+}
+
+.today-weather {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.weather-details {
+    width: 60%;
+}

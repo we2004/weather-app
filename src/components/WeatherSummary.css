@@ -1,0 +1,64 @@
+.city-general-details {
+  background-color: var(--card-background);
+  box-shadow: var(--dark-shadow);
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  width: 35%;
+  padding: 3rem 0;
+}
+
+.city-name {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+}
+
+.temp-icon {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 0.5rem;
+
+  border-radius: 50%;
+}
+
+.main-temp {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.current-time {
+  color: var(--secondary-dark-background);
+}
+
+.temp-details {
+  text-align: center;
+}
+
+.fav-btn {
+  color: var(--light-font-color);
+  font-size: 15px;
+  background-color: #0353a4;
+  border: none;
+  border-radius: 25px;
+  width: 20%;
+  padding: 10px 0;
+
+  box-shadow: var(--dark-shadow);
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.fav-btn:hover {
+  background-color: rgb(194, 0, 0);
+  width: 30%;
+}
+
+
