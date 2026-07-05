@@ -96,7 +96,7 @@ function WeatherDetails() {
       <Header />
 
       <h2 className="section-title">Today's Weather</h2>
-      <WeatherSummary />
+      <WeatherSummary city="jeddah" cityIcon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX6qTlGh05v5CAcxJGH8DmRcQPpmqjkbcs2rjlRPxJNwPnzUKUbqvP0kI&s=10" currentTime={10} mainTemp={29} weatherDiscription="littl hot" />
 
       <div className="weather-details">
         {singleCards.map((card) => {

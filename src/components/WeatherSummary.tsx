@@ -1,20 +1,26 @@
 
+type WeatherSummaryProps = {
+  city: string
+  cityIcon: string
+  mainTemp: number
+  weatherDiscription: string
+  currentTime: number
+}
 
-
-function WeatherSummary() {
+function WeatherSummary({city, cityIcon, mainTemp, weatherDiscription, currentTime} : WeatherSummaryProps) {
   const isFavored = false
 
   return (
     <div className="city-general-details">
-      <p className="city-name">Jeddah</p>
+      <p className="city-name">{city}</p>
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH8eTki0RnKU8g47H-JoMogq9oqF7Agut8ZHtEsOA9VA&s"
+        src={cityIcon}
         alt=""
         className="temp-icon"
       />
-      <div className="main-temp">100&deg;C</div>
-      <div className="weather-description">very sunny</div>
-      <div className="current-time">6:38am</div>
+      <div className="main-temp">{mainTemp}&deg;C</div>
+      <div className="weather-description">{weatherDiscription}</div>
+      <div className="current-time">{currentTime}am</div>
       <button className="fav-btn">
         {isFavored ? (
           <i className="bi bi-heart-fill"></i>
