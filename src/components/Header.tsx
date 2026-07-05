@@ -1,6 +1,5 @@
 
-
-
+import "./Header.css"
 
 function Header() {
   return (
@@ -8,7 +7,7 @@ function Header() {
       <div className="header">
         <div className="logo">9eather</div>
 
-        <div className="searchbar">
+        <div className="search-bar">
           <input
             type="search"
             placeholder="Search City"

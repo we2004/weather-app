@@ -1,15 +1,24 @@
-:root {
-    --light-background: #ADB5BD;
-    --dark-background: #001233;
-    --light-font-color: #E9ECEF;
-    --dark-font-color: #002855;
 
-    --font-heading:  "Slabo 27px", serif;
-    --font-body: "Roboto", sans-serif;
+:root {
+  --light-background: #E9ECEF;
+  --dark-background: #001233;
+  --light-font-color: #e9ecef;
+  --dark-font-color: #002855;
+  --dark-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+  --font-heading: "Slabo 27px", serif;
+  --font-body: "Roboto", sans-serif;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    font-family: var(--font-body);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--light-background);
+  color: var(--dark-font-color);
+  padding: 0.5rem;
 }
