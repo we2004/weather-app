@@ -1,11 +1,4 @@
-
-type WeatherSummaryProps = {
-  city: string
-  cityIcon: string
-  mainTemp: number
-  weatherDiscription: string
-  currentTime: number
-}
+import { type WeatherSummaryProps } from "../types/weather"
 
 function WeatherSummary({city, cityIcon, mainTemp, weatherDiscription, currentTime} : WeatherSummaryProps) {
   const isFavored = false

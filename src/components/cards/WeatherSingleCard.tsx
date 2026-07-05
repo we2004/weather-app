@@ -1,11 +1,4 @@
-import React from "react"
-
-type WeatherSingleCardProps = {
-  icon: React.ReactNode
-  title: string
-  value: string
-  temp?: boolean
-}
+import {type WeatherSingleCardProps } from "../../types/weather.ts"
 
 function WeatherSingleCard({ icon, title, value, temp }: WeatherSingleCardProps) {
   return (

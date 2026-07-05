@@ -1,12 +1,5 @@
-import React from 'react'
 
-type WeatherDoubleCardProps = {
-	topIcon: React.ReactNode
-	topValue: string
-	bottomIcon: React.ReactNode
-	bottomValue: string
-	temp? : boolean
-}
+import { type WeatherDoubleCardProps } from "../../types/weather"
 
 
 function WeatherDoubleCard({topIcon , topValue,bottomIcon, bottomValue, temp} : WeatherDoubleCardProps) {

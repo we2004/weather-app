@@ -3,8 +3,9 @@ import WeatherSummary from "../components/WeatherSummary"
 import WeatherSingleCard from "../components/cards/WeatherSingleCard"
 import WeatherDoubleCard from "../components/cards/WeatherDoubleCard"
 import ForecastDayCard from "../components/cards/ForecastDayCard"
+import { type ForecastDayCardProps, type WeatherDoubleCardProps, type WeatherSingleCardProps } from "../types/weather"
 
-const singleCards = [
+const singleCards: WeatherSingleCardProps[] = [
   {
     title: "Temperature",
     value: "100°C",
@@ -29,7 +30,7 @@ const singleCards = [
   }
 ]
 
-const doubleCards = [
+const doubleCards: WeatherDoubleCardProps[] = [
   {
     topIcon: <i className="bi bi-brightness-low"></i>,
     topValue: "Min: 10",
@@ -45,7 +46,7 @@ const doubleCards = [
   }
 ]
 
-const forecastDays = [
+const forecastDays: ForecastDayCardProps[] = [
   {
     day: "Mon",
     dayIcon: "https://openweathermap.org/img/wn/01d@2x.png",
@@ -96,7 +97,13 @@ function WeatherDetails() {
       <Header />
 
       <h2 className="section-title">Today's Weather</h2>
-      <WeatherSummary city="jeddah" cityIcon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX6qTlGh05v5CAcxJGH8DmRcQPpmqjkbcs2rjlRPxJNwPnzUKUbqvP0kI&s=10" currentTime={10} mainTemp={29} weatherDiscription="littl hot" />
+      <WeatherSummary
+        city="jeddah"
+        cityIcon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX6qTlGh05v5CAcxJGH8DmRcQPpmqjkbcs2rjlRPxJNwPnzUKUbqvP0kI&s=10"
+        currentTime={10}
+        mainTemp={29}
+        weatherDiscription="littl hot"
+      />
 
       <div className="weather-details">
         {singleCards.map((card) => {

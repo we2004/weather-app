@@ -1,11 +1,4 @@
-
-
-type ForecastDayCardProps = {
-  day: string
-  dayIcon: string
-  dayDescription: string
-  dayRain: string
-}
+import { type ForecastDayCardProps } from "../../types/weather"
 
 function ForecastDayCard({day, dayIcon, dayDescription, dayRain} : ForecastDayCardProps) {
   return (
