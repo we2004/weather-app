@@ -9,6 +9,8 @@
   right: 0;
   background-color: var(--primary-dark-background);
   padding: 0.8rem 1rem;
+
+  z-index: 999;
 }
 
 .header .logo {
