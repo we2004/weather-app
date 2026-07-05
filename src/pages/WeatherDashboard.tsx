@@ -1,8 +1,8 @@
-import { Fragment } from "react/jsx-runtime"
 import Header from "../components/Header"
 import WeatherSummary from "../components/WeatherSummary"
 import WeatherSingleCard from "../components/cards/WeatherSingleCard"
 import WeatherDoubleCard from "../components/cards/WeatherDoubleCard"
+import ForecastDayCard from "../components/cards/ForecastDayCard"
 
 const singleCards = [
   {
@@ -45,39 +45,88 @@ const doubleCards = [
   }
 ]
 
+const forecastDays = [
+  {
+    day: "Mon",
+    dayIcon: "https://openweathermap.org/img/wn/01d@2x.png",
+    dayDescription: "Sunny",
+    dayRain: "0% Rain"
+  },
+  {
+    day: "Tue",
+    dayIcon: "https://openweathermap.org/img/wn/02d@2x.png",
+    dayDescription: "Partly Cloudy",
+    dayRain: "10% Rain"
+  },
+  {
+    day: "Wed",
+    dayIcon: "https://openweathermap.org/img/wn/03d@2x.png",
+    dayDescription: "Cloudy",
+    dayRain: "20% Rain"
+  },
+  {
+    day: "Thu",
+    dayIcon: "https://openweathermap.org/img/wn/04d@2x.png",
+    dayDescription: "Overcast",
+    dayRain: "35% Rain"
+  },
+  {
+    day: "Fri",
+    dayIcon: "https://openweathermap.org/img/wn/09d@2x.png",
+    dayDescription: "Light Rain",
+    dayRain: "55% Rain"
+  },
+  {
+    day: "Sat",
+    dayIcon: "https://openweathermap.org/img/wn/10d@2x.png",
+    dayDescription: "Rain Showers",
+    dayRain: "70% Rain"
+  },
+  {
+    day: "Sun",
+    dayIcon: "https://openweathermap.org/img/wn/11d@2x.png",
+    dayDescription: "Thunderstorm",
+    dayRain: "85% Rain"
+  }
+]
+
 function WeatherDetails() {
   return (
     <>
       <Header />
+
+      <h2 className="section-title">Today's Weather</h2>
       <WeatherSummary />
 
       <div className="weather-details">
-        {singleCards.map((card, idx) => {
+        {singleCards.map((card) => {
           return (
-            <Fragment key={idx}>
-              <WeatherSingleCard
-                value={card.value}
-                icon={card.icon}
-                title={card.title}
-                temp={card.temp}
-              />
-            </Fragment>
+            <WeatherSingleCard
+              key={card.title}
+              {...card}
+            />
           )
         })}
 
-        {doubleCards.map((card, idx) => {
+        {doubleCards.map((card) => {
           return (
-            <Fragment key={idx}>
-              <WeatherDoubleCard
-                topIcon={card.topIcon}
-                topValue={card.topValue}
-                bottomIcon={card.bottomIcon}
-                bottomValue={card.bottomValue}
-                temp={card.temp}
-              />
-            </Fragment>
+            <WeatherDoubleCard
+              key={card.topValue}
+              {...card}
+            />
           )
         })}
+      </div>
+
+      <h2 className="section-title">7-Day Forecast</h2>
+
+      <div className="forecast">
+        {forecastDays.map((day) => (
+          <ForecastDayCard
+            key={day.day}
+            {...day}
+          />
+        ))}
       </div>
     </>
   )
