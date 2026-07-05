@@ -1,0 +1,15 @@
+:root {
+    --light-background: #ADB5BD;
+    --dark-background: #001233;
+    --light-font-color: #E9ECEF;
+    --dark-font-color: #002855;
+
+    --font-heading:  "Slabo 27px", serif;
+    --font-body: "Roboto", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-body);
+}
