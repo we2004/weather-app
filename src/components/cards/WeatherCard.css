@@ -1,0 +1,49 @@
+.single-info-card,
+.double-info-card {
+  background-color: var(--small-card-background);
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-shadow: var(--dark-shadow);
+
+  transition: all 0.3s ease;
+}
+
+.single-info-card:hover, .double-info-card:hover {
+    transform: translateY(-5px);
+    
+}
+
+.single-info-card i,
+.double-info-card i {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-dark-background);
+}
+
+.top-section,
+.bottom-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+}
+
+.double-info-card .card-title {
+  font-size: 1.1rem;
+}
+
+.card-data {
+  font-weight: bold;
+}

@@ -13,13 +13,13 @@ import "./WeatherDashboard.css"
 const singleCards: WeatherSingleCardProps[] = [
   {
     title: "Temperature",
-    value: "100°C",
+    value: "100",
     icon: <i className="bi bi-thermometer"></i>,
     temp: true
   },
   {
     title: "Feels Like",
-    value: "100°C",
+    value: "100",
     icon: <i className="bi bi-water"></i>,
     temp: true
   },
@@ -32,6 +32,21 @@ const singleCards: WeatherSingleCardProps[] = [
     title: "Pressure",
     value: "100",
     icon: <i className="bi bi-speedometer2"></i>
+  },
+  {
+    title: "Wind Speed",
+    value: "100",
+    icon: <i className="bi bi-wind"></i>
+  },
+  {
+    title: "Cloudiness",
+    value: "100",
+    icon: <i className="bi bi-clouds"></i>
+  },
+  {
+    title: "Visibility",
+    value: "100",
+    icon: <i className="bi bi-eye"></i>
   }
 ]
 

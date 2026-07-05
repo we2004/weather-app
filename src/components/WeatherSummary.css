@@ -1,5 +1,5 @@
 .city-general-details {
-  background-color: var(--card-background);
+  background-color: var(--main-card-background);
   box-shadow: var(--dark-shadow);
   border-radius: 15px;
 
@@ -11,6 +11,11 @@
 
   width: 35%;
   padding: 3rem 0;
+  transition: all 0.3s ease;
+}
+
+.city-general-details:hover {
+  transform: translateY(-5px);
 }
 
 .city-name {
@@ -60,5 +65,3 @@
   background-color: rgb(194, 0, 0);
   width: 30%;
 }
-
-

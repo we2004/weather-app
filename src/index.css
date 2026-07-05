@@ -3,7 +3,8 @@
   --light-background: #E9ECEF;
   --primary-dark-background: #001233;
   --secondary-dark-background: #0353A4;
-  --card-background: #00123342;
+  --main-card-background: #00123342;
+  --small-card-background: #0353A442;
 
   --light-font-color: #e9ecef;
   --dark-font-color: #002855;
@@ -26,5 +27,5 @@ body {
   background-color: var(--light-background);
   color: var(--dark-font-color);
 
-  padding: 70px 1rem;
+  padding: 70px 2rem;
 }
