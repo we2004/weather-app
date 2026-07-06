@@ -2,6 +2,7 @@
 .double-info-card {
   background-color: var(--small-card-background);
   border-radius: 10px;
+  color: var(--light-font-color);
 
   display: flex;
   flex-direction: column;
@@ -22,7 +23,6 @@
 .double-info-card i {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: var(--secondary-dark-background);
 }
 
 .top-section,
@@ -35,7 +35,6 @@
 
 .card-title {
   font-size: 1.2rem;
-  font-weight: bold;
   margin-bottom: 0.5rem;
   font-family: var(--font-heading);
 }

@@ -1,4 +1,6 @@
 .city-general-details {
+  color: var(--light-font-color);
+
   background-color: var(--main-card-background);
   box-shadow: var(--dark-shadow);
   border-radius: 15px;
@@ -39,7 +41,7 @@
 }
 
 .current-time {
-  color: var(--secondary-dark-background);
+  color: var(--light-font-color);
 }
 
 .temp-details {

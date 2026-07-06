@@ -1,6 +1,6 @@
 
 import { type WeatherDoubleCardProps } from "../../types/weather"
-import "./weatherCard.css"
+import "./WeatherCard.css"
 
 function WeatherDoubleCard({topIcon , topValue,bottomIcon, bottomValue, temp} : WeatherDoubleCardProps) {
   return (

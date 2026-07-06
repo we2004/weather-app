@@ -1,27 +1,32 @@
-
 .section-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-family: var(--font-heading);
-    text-shadow: var(--title-shadow);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  text-shadow: var(--title-shadow);
 
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .today-weather {
-    display: flex;
-    justify-content: space-between;
-
-    padding: 0 1.3em;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 2rem;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url("https://www.lot.com/content/dam/lot/lot-com/destination-photos/japonia/Tokyo-5%20.coreimg.jpg/1723628368208/Tokyo-5%20.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  overflow: hidden;
 }
 
 .weather-details {
-    width: 50%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 1.5rem;
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1.5rem;
 }
-
-
