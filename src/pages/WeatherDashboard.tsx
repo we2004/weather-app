@@ -71,43 +71,50 @@ const forecastDays: ForecastDayCardProps[] = [
     day: "Mon",
     dayIcon: "https://openweathermap.org/img/wn/01d@2x.png",
     dayDescription: "Sunny",
-    dayRain: "0% Rain"
+    dayRain: "0% Rain",
+    dayTemp: "29"
   },
   {
     day: "Tue",
     dayIcon: "https://openweathermap.org/img/wn/02d@2x.png",
     dayDescription: "Partly Cloudy",
-    dayRain: "10% Rain"
+    dayRain: "10% Rain",
+    dayTemp: "28"
   },
   {
     day: "Wed",
     dayIcon: "https://openweathermap.org/img/wn/03d@2x.png",
     dayDescription: "Cloudy",
-    dayRain: "20% Rain"
+    dayRain: "20% Rain",
+    dayTemp: "27"
   },
   {
     day: "Thu",
     dayIcon: "https://openweathermap.org/img/wn/04d@2x.png",
     dayDescription: "Overcast",
-    dayRain: "35% Rain"
+    dayRain: "35% Rain",
+    dayTemp: "26"
   },
   {
     day: "Fri",
     dayIcon: "https://openweathermap.org/img/wn/09d@2x.png",
     dayDescription: "Light Rain",
-    dayRain: "55% Rain"
+    dayRain: "55% Rain",
+    dayTemp: "24"
   },
   {
     day: "Sat",
     dayIcon: "https://openweathermap.org/img/wn/10d@2x.png",
     dayDescription: "Rain Showers",
-    dayRain: "70% Rain"
+    dayRain: "70% Rain",
+    dayTemp: "23"
   },
   {
     day: "Sun",
     dayIcon: "https://openweathermap.org/img/wn/11d@2x.png",
     dayDescription: "Thunderstorm",
-    dayRain: "85% Rain"
+    dayRain: "85% Rain",
+    dayTemp: "22"
   }
 ]
 
@@ -119,8 +126,6 @@ function WeatherDetails() {
       <h2 className="section-title">Today's Weather</h2>
 
       <div className="today-weather">
-        
-
         <div className="weather-details">
           {singleCards.map((card) => {
             return (

@@ -20,6 +20,7 @@ export type ForecastDayCardProps = {
   dayIcon: string
   dayDescription: string
   dayRain: string
+  dayTemp: string
 }
 
 export type WeatherSummaryProps = {
