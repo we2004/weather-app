@@ -1,5 +1,5 @@
 import { type ForecastDayCardProps } from "../../types/weather"
-
+import './ForecastDayCard.css'
 function ForecastDayCard({day, dayIcon, dayDescription, dayRain} : ForecastDayCardProps) {
   return (
     <div className="day-card">

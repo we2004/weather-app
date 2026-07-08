@@ -4,7 +4,8 @@
   font-family: var(--font-heading);
   text-shadow: var(--title-shadow);
 
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .today-weather {
@@ -21,6 +22,7 @@
   background-repeat: no-repeat;
   border-radius: 30px;
   overflow: hidden;
+  margin-bottom: 2rem;
 }
 
 .weather-details {
@@ -29,4 +31,12 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 1.5rem;
+}
+
+.forecast {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
