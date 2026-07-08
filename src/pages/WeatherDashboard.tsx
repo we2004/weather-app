@@ -3,18 +3,23 @@ import WeatherSummary from "../components/WeatherSummary"
 import WeatherSingleCard from "../components/cards/WeatherSingleCard"
 import WeatherDoubleCard from "../components/cards/WeatherDoubleCard"
 import ForecastDayCard from "../components/cards/ForecastDayCard"
-import { type ForecastDayCardProps, type WeatherDoubleCardProps, type WeatherSingleCardProps } from "../types/weather"
+import {
+  type ForecastDayCardProps,
+  type WeatherDoubleCardProps,
+  type WeatherSingleCardProps
+} from "../types/weather"
+import "./WeatherDashboard.css"
 
 const singleCards: WeatherSingleCardProps[] = [
   {
     title: "Temperature",
-    value: "100°C",
+    value: "100",
     icon: <i className="bi bi-thermometer"></i>,
     temp: true
   },
   {
     title: "Feels Like",
-    value: "100°C",
+    value: "100",
     icon: <i className="bi bi-water"></i>,
     temp: true
   },
@@ -27,6 +32,21 @@ const singleCards: WeatherSingleCardProps[] = [
     title: "Pressure",
     value: "100",
     icon: <i className="bi bi-speedometer2"></i>
+  },
+  {
+    title: "Wind Speed",
+    value: "100",
+    icon: <i className="bi bi-wind"></i>
+  },
+  {
+    title: "Cloudiness",
+    value: "100",
+    icon: <i className="bi bi-clouds"></i>
+  },
+  {
+    title: "Visibility",
+    value: "100",
+    icon: <i className="bi bi-eye"></i>
   }
 ]
 
@@ -97,32 +117,37 @@ function WeatherDetails() {
       <Header />
 
       <h2 className="section-title">Today's Weather</h2>
-      <WeatherSummary
-        city="jeddah"
-        cityIcon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX6qTlGh05v5CAcxJGH8DmRcQPpmqjkbcs2rjlRPxJNwPnzUKUbqvP0kI&s=10"
-        currentTime={10}
-        mainTemp={29}
-        weatherDiscription="littl hot"
-      />
 
-      <div className="weather-details">
-        {singleCards.map((card) => {
-          return (
-            <WeatherSingleCard
-              key={card.title}
-              {...card}
-            />
-          )
-        })}
+      <div className="today-weather">
+        
 
-        {doubleCards.map((card) => {
-          return (
-            <WeatherDoubleCard
-              key={card.topValue}
-              {...card}
-            />
-          )
-        })}
+        <div className="weather-details">
+          {singleCards.map((card) => {
+            return (
+              <WeatherSingleCard
+                key={card.title}
+                {...card}
+              />
+            )
+          })}
+
+          {doubleCards.map((card) => {
+            return (
+              <WeatherDoubleCard
+                key={card.topValue}
+                {...card}
+              />
+            )
+          })}
+        </div>
+
+        <WeatherSummary
+          city="Jeddah"
+          cityIcon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX6qTlGh05v5CAcxJGH8DmRcQPpmqjkbcs2rjlRPxJNwPnzUKUbqvP0kI&s=10"
+          currentTime={10}
+          mainTemp={29}
+          weatherDiscription="littl hot"
+        />
       </div>
 
       <h2 className="section-title">7-Day Forecast</h2>
