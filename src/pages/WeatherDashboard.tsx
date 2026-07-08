@@ -121,7 +121,7 @@ const forecastDays: ForecastDayCardProps[] = [
 function WeatherDetails() {
   return (
     <>
-      <Header />
+      <Header icon={<i className="bi bi-heart-fill fav-icon"></i>} />
 
       <h2 className="section-title">Today's Weather</h2>
 

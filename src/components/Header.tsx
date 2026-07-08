@@ -1,12 +1,16 @@
 
+import React from "react"
 import "./Header.css"
 
-function Header() {
+type HeaderProps = {
+  icon: React.ReactNode
+}
+function Header({icon} : HeaderProps) {
   return (
     <>
       <div className="header">
         <div className="logo">9eather</div>
-
+        {icon}
         <div className="search-bar">
           <input
             type="search"

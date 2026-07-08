@@ -1,6 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 3rem;
 
   position: fixed;
@@ -55,4 +56,17 @@
 
 .search-bar i:active {
   color: var(--light-font-color);
+}
+
+.fav-icon {
+  font-size: 1.2rem;
+  color: var(--light-font-color);
+ 
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fav-icon:hover {
+  transform: scale(1.5);
+  color: rgb(194, 0, 0);
 }

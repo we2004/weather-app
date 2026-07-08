@@ -1,14 +1,13 @@
-
 :root {
-  --light-background: #E9ECEF;
+  --light-background: #e9ecef;
   --primary-dark-background: #001233;
-  --secondary-dark-background: #0353A4;
+  --secondary-dark-background: #0353a4;
   --main-card-background: #001233d8;
   --small-card-background: #0353a4c4;
 
   --light-font-color: #e9ecef;
   --dark-font-color: #002855;
-  
+
   --dark-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
   --title-shadow: 5px 3px 2px rgba(0, 0, 0, 0.15);
 
@@ -28,4 +27,9 @@ body {
   color: var(--dark-font-color);
 
   padding: 70px 2rem;
+}
+
+i {
+  width: 19px;
+  height: 19px;
 }
