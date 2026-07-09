@@ -30,3 +30,10 @@ export type WeatherSummaryProps = {
   weatherDiscription: string
   currentTime: number
 }
+
+export type FavoriteCityCardProps = {
+  city: string
+  time: number
+  description: string
+  temp: string
+}
