@@ -118,10 +118,10 @@ const forecastDays: ForecastDayCardProps[] = [
   }
 ]
 
-function WeatherDetails() {
+function WeatherDashboard() {
   return (
     <>
-      <Header icon={<i className="bi bi-heart-fill fav-icon"></i>} />
+      <Header icon={<i className="bi bi-heart-fill fav-icon"></i>} toHomePage={false}/>
 
       <h2 className="section-title">Today's Weather</h2>
 
@@ -169,4 +169,4 @@ function WeatherDetails() {
   )
 }
 
-export default WeatherDetails
+export default WeatherDashboard
