@@ -33,3 +33,13 @@ i {
   width: 19px;
   height: 19px;
 }
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  text-shadow: var(--title-shadow);
+
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}

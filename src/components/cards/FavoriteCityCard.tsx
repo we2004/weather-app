@@ -1,5 +1,5 @@
 import { type FavoriteCityCardProps } from "../../types/weather"
-
+import './FavoriteCityCard.css'
 
 function FavoriteCityCard({city, time, description, temp}:FavoriteCityCardProps) {
   return (

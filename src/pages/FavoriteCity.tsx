@@ -1,6 +1,7 @@
 import FavoriteCityCard from "../components/cards/FavoriteCityCard.tsx"
 import Header from "../components/Header.tsx"
 import { type FavoriteCityCardProps } from "../types/weather"
+import './FavoriteCity.css'
 
 const mockFavoriteCities: FavoriteCityCardProps[] = [
   {
@@ -49,7 +50,7 @@ function FavoriteCity() {
         toHomePage={true}
       />
 
-      <h2 className="section-title">Favorite City</h2>
+      <h2 className="section-title">Favorite Cities</h2>
 
       <div className="favorite-city-container">
         {mockFavoriteCities.map((item) => (
