@@ -7,11 +7,19 @@ type HeaderProps = {
   toHomePage: boolean
 }
 function Header({ icon, toHomePage }: HeaderProps) {
+  const link = toHomePage ? '/' : 'favorite'
+  const iconClass = toHomePage ? 'home-icon' : 'fav-icon'
+ 
   return (
     <>
       <div className="header">
         <div className="logo">9eather</div>
-        <NavLink to={toHomePage ? "/" : "/favorite"}>{icon}</NavLink>
+        <NavLink
+          to={link}
+          className={iconClass}
+        >
+          {icon}
+        </NavLink>
 
         <div className="search-bar">
           <input
