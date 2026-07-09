@@ -50,7 +50,7 @@ function FavoriteCity() {
         toHomePage={true}
       />
 
-      <h2 className="section-title">Favorite Cities</h2>
+      <h2 className="section-title favorite-page">Favorite Cities</h2>
 
       <div className="favorite-city-container">
         {mockFavoriteCities.map((item) => (
