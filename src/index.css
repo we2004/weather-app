@@ -26,7 +26,7 @@ body {
   background-color: var(--light-background);
   color: var(--dark-font-color);
 
-  padding: 90px 2rem 70px 2rem;
+  padding: 80px 2rem 70px 2rem;
 }
 
 i {
