@@ -7,9 +7,9 @@ type HeaderProps = {
   toHomePage: boolean
 }
 function Header({ icon, toHomePage }: HeaderProps) {
-  const link = toHomePage ? '/' : 'favorite'
-  const iconClass = toHomePage ? 'home-icon' : 'fav-icon'
- 
+  const link = toHomePage ? "/" : "/favorite"
+  const iconClass = toHomePage ? "home-icon" : "fav-icon"
+
   return (
     <>
       <div className="header">
@@ -22,7 +22,7 @@ function Header({ icon, toHomePage }: HeaderProps) {
         </NavLink>
 
         <NavLink
-          to="about"
+          to="/about"
           className="about-icon"
         >
           <i className="bi bi-info-circle"></i>
