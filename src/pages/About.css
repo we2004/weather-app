@@ -8,7 +8,7 @@
 .about-card {
   width: min(100%, 620px);
   background-color: var(--main-card-background);
-  color: var(--light-font-color);
+  color: var(--light-background);
   border-radius: 20px;
   padding: 2rem;
   box-shadow: var(--dark-shadow);
@@ -27,13 +27,13 @@
 
 .about-title {
   margin: 0 0 0.75rem;
-  color: var(--light-font-color);
+  color: var(--light-background);
 }
 
 .about-text {
   line-height: 1.7;
   margin-bottom: 1.5rem;
-  color: var(--light-font-color);
+  color: var(--light-background);
 }
 
 .profile-card {
@@ -51,7 +51,7 @@
 }
 
 .profile-card p {
-  color: var(--light-font-color);
+  color: var(--light-background);
 }
 
 .social-links {
@@ -66,7 +66,7 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  color: var(--light-font-color);
+  color: var(--light-background);
   background: var(--text-background);
   transition: all 0.2s ease;
 }

@@ -1,5 +1,5 @@
 .city-general-details {
-  color: var(--light-font-color);
+  color: var(--light-background);
 
   background-color: var(--main-card-background);
   box-shadow: var(--dark-shadow);
@@ -13,6 +13,7 @@
 
   width: 35%;
   padding: 3rem 0;
+  
   transition: all 0.3s ease;
 }
 
@@ -21,10 +22,16 @@
 }
 
 .city-general-details .city-name {
+  text-align: center;
   font-size: 2.8rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
   font-family: var(--font-heading);
+
+  background-color: var(--text-background);
+  width: 250px;
+  padding: 8px 0;
+  border-radius: 30px;
 }
 
 .temp-icon {
@@ -41,7 +48,7 @@
 }
 
 .current-time {
-  color: var(--light-font-color);
+  color: var(--light-background);
 }
 
 .temp-details {
@@ -49,7 +56,7 @@
 }
 
 .fav-btn {
-  color: var(--light-font-color);
+  color: var(--light-background);
   font-size: 15px;
   background-color: #0353a4;
   border: none;

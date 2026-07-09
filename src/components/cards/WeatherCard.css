@@ -2,7 +2,7 @@
 .double-info-card {
   background-color: var(--small-card-background);
   border-radius: 10px;
-  color: var(--light-font-color);
+  color: var(--light-background);
 
   display: flex;
   flex-direction: column;

@@ -18,7 +18,7 @@
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--light-font-color);
+  color: var(--light-background);
   font-style: italic;
   text-shadow: var(--title-shadow);
 }
@@ -55,12 +55,12 @@
 }
 
 .search-bar i:active {
-  color: var(--light-font-color);
+  color: var(--light-background);
 }
 
 .fav-icon, .home-icon, .about-icon {
   font-size: 1.2rem;
-  color: var(--light-font-color);
+  color: var(--light-background);
  
   cursor: pointer;
   transition: all 0.3s ease;

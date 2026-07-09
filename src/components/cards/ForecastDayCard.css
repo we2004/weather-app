@@ -10,7 +10,7 @@
   background-color: var(--small-card-background);
   border-radius: 10px;
 
-  color: var(--light-font-color);
+  color: var(--light-background);
 
   box-shadow: var(--dark-shadow);
   transition: all 0.3s ease;
@@ -27,8 +27,14 @@
 }
 
 .day-text {
+  text-align: center;
   font-size: 1.5rem;
   font-family: var(--font-heading);
+
+  width: 100px;
+  padding: 3px 0;
+  border-radius: 20px;
+  background-color: var(--text-background);
 }
 
 .day-description {

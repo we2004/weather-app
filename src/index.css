@@ -6,8 +6,6 @@
   --main-card-background: #001233d8;
   --small-card-background: #0353a4c4;
 
-
-  --light-font-color: #e9ecef;
   --dark-font-color: #002855;
 
   --dark-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
@@ -28,7 +26,7 @@ body {
   background-color: var(--light-background);
   color: var(--dark-font-color);
 
-  padding: 70px 2rem;
+  padding: 90px 2rem 70px 2rem;
 }
 
 i {
