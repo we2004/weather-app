@@ -21,6 +21,13 @@ function Header({ icon, toHomePage }: HeaderProps) {
           {icon}
         </NavLink>
 
+        <NavLink
+          to="about"
+          className="about-icon"
+        >
+          <i className="bi bi-info-circle"></i>
+        </NavLink>
+
         <div className="search-bar">
           <input
             type="search"

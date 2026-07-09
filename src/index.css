@@ -1,9 +1,11 @@
 :root {
   --light-background: #e9ecef;
+  --text-background: rgba(255, 255, 255, 0.12);
   --primary-dark-background: #001233;
   --secondary-dark-background: #0353a4;
   --main-card-background: #001233d8;
   --small-card-background: #0353a4c4;
+
 
   --light-font-color: #e9ecef;
   --dark-font-color: #002855;

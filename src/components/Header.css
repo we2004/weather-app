@@ -58,7 +58,7 @@
   color: var(--light-font-color);
 }
 
-.fav-icon, .home-icon {
+.fav-icon, .home-icon, .about-icon {
   font-size: 1.2rem;
   color: var(--light-font-color);
  
@@ -66,12 +66,8 @@
   transition: all 0.3s ease;
 }
 
-.fav-icon:hover {
+.fav-icon:hover,.home-icon:hover, .about-icon:hover {
   transform: scale(1.5);
   color: rgb(194, 0, 0);
 }
 
-.home-icon:hover {
-  transform: scale(1.5);
-  color: rgb(0, 194, 0);
-}
