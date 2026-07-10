@@ -3,7 +3,6 @@ import Header from "../components/Header.tsx"
 import { type FavoriteCityCardProps } from "../types/weather"
 import './FavoriteCity.css'
 
-//working on it..
 const mockFavoriteCities: FavoriteCityCardProps[] = [
   {
     city: "Jeddah, SA",
