@@ -13,60 +13,8 @@ import {
   type WeatherSummaryProps
 } from "../types/weather"
 import "./WeatherDashboard.css"
-import { getCurrentWeatherData } from "../api/weather"
+import { getCurrentWeatherData, getForecast } from "../api/weather"
 import { useEffect, useState } from "react"
-
-const forecastDays: ForecastDayCardProps[] = [
-  {
-    day: "Mon",
-    dayIcon: "https://openweathermap.org/img/wn/01d@2x.png",
-    dayDescription: "Sunny",
-    dayRain: "0% Rain",
-    dayTemp: "29"
-  },
-  {
-    day: "Tue",
-    dayIcon: "https://openweathermap.org/img/wn/02d@2x.png",
-    dayDescription: "Partly Cloudy",
-    dayRain: "10% Rain",
-    dayTemp: "28"
-  },
-  {
-    day: "Wed",
-    dayIcon: "https://openweathermap.org/img/wn/03d@2x.png",
-    dayDescription: "Cloudy",
-    dayRain: "20% Rain",
-    dayTemp: "27"
-  },
-  {
-    day: "Thu",
-    dayIcon: "https://openweathermap.org/img/wn/04d@2x.png",
-    dayDescription: "Overcast",
-    dayRain: "35% Rain",
-    dayTemp: "26"
-  },
-  {
-    day: "Fri",
-    dayIcon: "https://openweathermap.org/img/wn/09d@2x.png",
-    dayDescription: "Light Rain",
-    dayRain: "55% Rain",
-    dayTemp: "24"
-  },
-  {
-    day: "Sat",
-    dayIcon: "https://openweathermap.org/img/wn/10d@2x.png",
-    dayDescription: "Rain Showers",
-    dayRain: "70% Rain",
-    dayTemp: "23"
-  },
-  {
-    day: "Sun",
-    dayIcon: "https://openweathermap.org/img/wn/11d@2x.png",
-    dayDescription: "Thunderstorm",
-    dayRain: "85% Rain",
-    dayTemp: "22"
-  }
-]
 
 function WeatherDashboard() {
   const [weatherSummaryData, setWeatherSummaryData] =
@@ -77,19 +25,29 @@ function WeatherDashboard() {
   const [doubleCardData, setDoubleCardData] = useState<DoubleCardData | null>(
     null
   )
+  const [forecastDays, setForecastDays] = useState<
+    ForecastDayCardProps[] | null
+  >(null)
 
   useEffect(() => {
     const fetchWeatherData = async () => {
       const { weatherSummaryData, singleCardData, doubleCardData } =
-        await getCurrentWeatherData('china')
+        await getCurrentWeatherData("china")
+
+      const forecast = await getForecast("china")
 
       setWeatherSummaryData(weatherSummaryData)
       setSingleCardsData(singleCardData)
       setDoubleCardData(doubleCardData)
+      setForecastDays(forecast)
+      await getForecast('china')
     }
 
     fetchWeatherData()
-  },[])
+      
+  }, [])
+
+
 
   const singleCards: WeatherSingleCardProps[] = [
     {
@@ -149,9 +107,7 @@ function WeatherDashboard() {
 
   return (
     <>
-      <Header
-       
-      />
+      <Header />
 
       <h2 className="section-title">Today's Weather</h2>
 
@@ -187,10 +143,10 @@ function WeatherDashboard() {
         )}
       </div>
 
-      <h2 className="section-title">7-Day Forecast</h2>
+      <h2 className="section-title">Forecast</h2>
 
       <div className="forecast">
-        {forecastDays.map((day) => (
+        {forecastDays?.map((day) => (
           <ForecastDayCard
             key={day.day}
             {...day}

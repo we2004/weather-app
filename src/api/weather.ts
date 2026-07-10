@@ -3,7 +3,7 @@ import dayjs from "dayjs"
 import {
   type DoubleCardData,
   type ForecastApiItem,
-  type ForecastData,
+  type ForecastDayCardProps,
   type SingleCardData,
   type WeatherSummaryProps
 } from "../types/weather"
@@ -58,22 +58,23 @@ export const getCurrentWeatherData = async (city: string) => {
 export const getForecast = async (city: string) => {
   const { lat, lon } = await getCityCoords(city)
   const response = await axios(
-    `${forecastURL}?lat=${lat}&lon=${lon}&cnt=7&appid=${weatherApiKey}`
+    `${forecastURL}?lat=${lat}&lon=${lon}&cnt=7&appid=${weatherApiKey}&units=metric`
   )
 
-  const forecast: ForecastData[] = response.data.list.map(
-    ({ dt, temp, weather, rain }: ForecastApiItem): ForecastData => {
+  const forecast: ForecastDayCardProps[] = response.data.list.map(
+    ({ dt, main, weather, clouds }: ForecastApiItem): ForecastDayCardProps => {
       return {
-        currentTime: dt,
-        mainTemp: temp.day,
-        weatherDiscription: weather[0].description,
-        cityIcon: getWeatherIconUrl(weather[0].icon),
-        rain: rain
+        day: dayjs.unix(dt).format("ddd, h A"),
+        dayIcon: getWeatherIconUrl(weather[0].icon),
+        dayDescription: weather[0].description,
+        dayCloud: clouds.all,
+        dayTemp: main.temp
       }
     }
   )
 
   return forecast
+  // console.log(response.data)
 }
 
 const getCityCoords = async (city: string) => {

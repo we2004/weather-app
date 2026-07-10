@@ -36,23 +36,24 @@ export type ForecastDayCardProps = {
   day: string
   dayIcon: string
   dayDescription: string
-  dayRain: string
-  dayTemp: string
+  dayCloud: number
+  dayTemp: number
 }
 
-export type ForecastData = Omit<WeatherSummaryProps, "city" | 'currentTime'> & { rain: number, currentTime:number }
 
 export type ForecastApiItem = {
   dt: number
-  temp: {
-    day: number
+  main: {
+    temp: number
   }
   weather: {
     main: string
     description: string
     icon: string
   }[]
-  rain: number
+  clouds: {
+    all: number
+  }
 }
 
 export type WeatherSummaryProps = {
