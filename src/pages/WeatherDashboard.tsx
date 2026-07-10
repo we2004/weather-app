@@ -89,7 +89,7 @@ function WeatherDashboard() {
     }
 
     fetchWeatherData()
-  })
+  },[])
 
   const singleCards: WeatherSingleCardProps[] = [
     {
