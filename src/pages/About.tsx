@@ -26,10 +26,7 @@ const socialLinks = [
 function About() {
   return (
     <>
-      <Header
-        icon={<i className="bi bi-house-fill"></i>}
-        toHomePage={true}
-      />
+      <Header />
 
       <div className="about-page">
         <section className="about-card">
