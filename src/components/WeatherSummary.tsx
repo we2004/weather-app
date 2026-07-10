@@ -1,3 +1,4 @@
+
 import { type WeatherSummaryProps } from "../types/weather"
 import "./WeatherSummary.css"
 
@@ -9,7 +10,6 @@ function WeatherSummary({
   currentTime
 }: WeatherSummaryProps) {
   const isFavored = false
-
   return (
     <div className="city-general-details">
       <p className="city-name">{city}</p>

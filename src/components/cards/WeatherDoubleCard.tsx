@@ -6,10 +6,10 @@ function WeatherDoubleCard({topIcon , topValue,bottomIcon, bottomValue, temp} : 
   return (
     <div className="double-info-card">
       <div className="top-section">
-        {topIcon} <span className="card-title">{topValue}{temp? '°C' : ''}</span>
+        {topIcon} {topValue}{temp? '°C' : ''}
       </div>
       <div className="bottom-section">
-        {bottomIcon} <span className="card-title">{bottomValue}{temp? '°C' : ''}</span>
+        {bottomIcon} {bottomValue}{temp? '°C' : ''}
       </div>
     </div>
   )
