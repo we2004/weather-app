@@ -2,13 +2,17 @@ import axios from "axios"
 import dayjs from "dayjs"
 import {
   type DoubleCardData,
+  type ForecastApiItem,
+  type ForecastData,
   type SingleCardData,
   type WeatherSummaryProps
 } from "../types/weather"
+import { getWeatherIconUrl } from "../utils/getWeatherIconUrl"
 
 const weatherApiKey = import.meta.env.VITE_WEATHER_API_KEY
 const currentWeatherBaseURL = import.meta.env.VITE_WEATHER_CURRENT_URL
 const geoURL = import.meta.env.VITE_WEATHER_GEO_URL
+const forecastURL = import.meta.env.VITE_WEATHER_FORECAST_URL
 
 export const getCurrentWeatherData = async (city: string) => {
   const { lat, lon } = await getCityCoords(city)
@@ -21,7 +25,7 @@ export const getCurrentWeatherData = async (city: string) => {
 
   const weatherSummaryData: WeatherSummaryProps = {
     city: name,
-    cityIcon: `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`,
+    cityIcon: getWeatherIconUrl(weather[0].icon),
     currentTime: dayjs.unix(dt).format("h:mm A"),
     mainTemp: main.temp,
     weatherDiscription: weather[0].description
@@ -49,6 +53,27 @@ export const getCurrentWeatherData = async (city: string) => {
     singleCardData,
     doubleCardData
   }
+}
+
+export const getForecast = async (city: string) => {
+  const { lat, lon } = await getCityCoords(city)
+  const response = await axios(
+    `${forecastURL}?lat=${lat}&lon=${lon}&cnt=7&appid=${weatherApiKey}`
+  )
+
+  const forecast: ForecastData[] = response.data.list.map(
+    ({ dt, temp, weather, rain }: ForecastApiItem): ForecastData => {
+      return {
+        currentTime: dt,
+        mainTemp: temp.day,
+        weatherDiscription: weather[0].description,
+        cityIcon: getWeatherIconUrl(weather[0].icon),
+        rain: rain
+      }
+    }
+  )
+
+  return forecast
 }
 
 const getCityCoords = async (city: string) => {
