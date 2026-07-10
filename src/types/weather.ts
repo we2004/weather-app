@@ -3,7 +3,7 @@ import React from "react"
 export type WeatherSingleCardProps = {
   icon: React.ReactNode
   title: string
-  value: string
+  value: number
   temp?: boolean
 }
 
@@ -28,7 +28,7 @@ export type WeatherSummaryProps = {
   cityIcon: string
   mainTemp: number
   weatherDiscription: string
-  currentTime: number
+  currentTime: string
 }
 
 export type FavoriteCityCardProps = {
@@ -37,3 +37,5 @@ export type FavoriteCityCardProps = {
   description: string
   temp: string
 }
+
+
