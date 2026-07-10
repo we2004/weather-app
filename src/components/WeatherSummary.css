@@ -54,3 +54,28 @@
   text-align: center;
 }
 
+.fav-btn {
+  color: var(--light-background);
+  font-size: 15px;
+  background-color: #0353a4;
+  border: none;
+  border-radius: 25px;
+  width: 20%;
+  padding: 6px 0;
+
+  box-shadow: var(--dark-shadow);
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.fav-btn:hover {
+  background-color: rgb(194, 0, 0);
+  width: 30%;
+}
+
+
+.fav-btn i {
+  width: 19px;
+  height: 19px;
+}

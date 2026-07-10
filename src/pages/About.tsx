@@ -26,8 +26,11 @@ const socialLinks = [
 function About() {
   return (
     <>
-      <Header />
-
+      <Header
+        icon={<i className="bi bi-house-fill"></i>}
+        toHomePage={true}
+      />
+      
       <div className="about-page">
         <section className="about-card">
           <span className="about-badge">About this app</span>

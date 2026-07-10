@@ -1,4 +1,4 @@
-import FavoriteCityCard from "../components/cards/FavoriteCityCard.tsx"
+import FavoriteCityCard from "../components/cards/FavoriteCityCard"
 import Header from "../components/Header.tsx"
 import { type FavoriteCityCardProps } from "../types/weather"
 import "./FavoriteCity.css"

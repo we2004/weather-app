@@ -1,4 +1,3 @@
-
 import { type WeatherSummaryProps } from "../types/weather"
 import "./WeatherSummary.css"
 
@@ -9,6 +8,8 @@ function WeatherSummary({
   weatherDiscription,
   currentTime
 }: WeatherSummaryProps) {
+
+  const isFavored = false
   return (
     <div className="city-general-details">
       <p className="city-name">{city}</p>
@@ -25,7 +26,14 @@ function WeatherSummary({
       <div className="current-time">
         <i className="bi bi-clock"></i> {currentTime} AM
       </div>
-      
+
+      <button className="fav-btn">
+        {isFavored ? (
+          <i className="bi bi-heart-fill"></i>
+        ) : (
+          <i className="bi bi-heart"></i>
+        )}
+      </button>
     </div>
   )
 }

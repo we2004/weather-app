@@ -1,16 +1,24 @@
+import React from "react"
 import { NavLink } from "react-router-dom"
 import "./Header.css"
 
-function Header() {
+type HeaderProps = {
+  icon: React.ReactNode
+  toHomePage: boolean
+}
+function Header({ icon, toHomePage }: HeaderProps) {
+  const link = toHomePage ? "/" : "/favorite"
+  const iconClass = toHomePage ? "home-icon" : "fav-icon"
+
   return (
     <>
       <div className="header">
         <div className="logo">9eather</div>
         <NavLink
-          to="/"
-          className="home-icon"
+          to={link}
+          className={iconClass}
         >
-          {<i className="bi bi-house-fill"></i>}
+          {icon}
         </NavLink>
 
         <NavLink
