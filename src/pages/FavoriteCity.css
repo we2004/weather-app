@@ -1,0 +1,10 @@
+.favorite-page.section-title {
+    text-align: center;
+}
+
+.favorite-city-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
