@@ -45,12 +45,15 @@
   color: var(--dark-font-color);
 }
 
-.search-bar i {
-  cursor: pointer;
+.search-btn {
+  font-size: 1.1rem;
+  background: none;
+  border: none;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.search-bar i:hover {
+.search-bar .search-btn:hover {
   transform: scale(1.15);
 }
 
@@ -58,16 +61,19 @@
   color: var(--light-background);
 }
 
-.fav-icon, .home-icon, .about-icon {
-  font-size: 1.2rem;
+.fav-icon,
+.home-icon,
+.about-icon {
+  font-size: 1.3rem;
   color: var(--light-background);
- 
+
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.fav-icon:hover,.home-icon:hover, .about-icon:hover {
+.fav-icon:hover,
+.home-icon:hover,
+.about-icon:hover {
   transform: scale(1.5);
   color: rgb(194, 0, 0);
 }
-
