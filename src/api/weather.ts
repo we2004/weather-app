@@ -5,7 +5,7 @@ import {
   type ForecastApiItem,
   type ForecastDayCardProps,
   type SingleCardData,
-  type WeatherSummaryProps
+  type WeatherSummaryData
 } from "../types/weather"
 import { getWeatherIconUrl } from "../utils/getWeatherIconUrl"
 
@@ -23,7 +23,7 @@ export const getCurrentWeatherData = async (city: string) => {
   const { weather, main, sys, wind, dt, name, clouds, visibility } =
     response.data
 
-  const weatherSummaryData: WeatherSummaryProps = {
+  const weatherSummaryData: WeatherSummaryData = {
     city: name,
     cityIcon: getWeatherIconUrl(weather[0].icon),
     currentTime: dayjs.unix(dt).format("h:mm A"),

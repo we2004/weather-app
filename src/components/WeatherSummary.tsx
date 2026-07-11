@@ -1,4 +1,5 @@
-import { type WeatherSummaryProps } from "../types/weather"
+import { type WeatherSummaryProps, type FavoriteCityCardProps } from "../types/weather"
+import { useState } from "react"
 import "./WeatherSummary.css"
 
 function WeatherSummary({
@@ -6,10 +7,30 @@ function WeatherSummary({
   cityIcon,
   mainTemp,
   weatherDiscription,
-  currentTime
+  currentTime,
+  weatherSummaryData
 }: WeatherSummaryProps) {
+  //favorite
+  const [isFavored, setIsFavored] = useState(false)
 
-  const isFavored = false
+  const handleFavorite = () => {
+    const favoriteCity = {
+      city: weatherSummaryData!.city,
+      time: weatherSummaryData!.currentTime,
+      description: weatherSummaryData!.weatherDiscription,
+      temp: weatherSummaryData!.mainTemp
+    }
+
+    const favoriteCityList : FavoriteCityCardProps[] =
+      JSON.parse(localStorage.getItem("favoriteCities") || "[]") 
+
+    favoriteCityList.push(favoriteCity)
+
+    localStorage.setItem("favoriteCities", JSON.stringify(favoriteCityList))
+    console.log(localStorage.getItem("favoriteCities"))
+    setIsFavored(true)
+  }
+
   return (
     <div className="city-general-details">
       <p className="city-name">{city}</p>
@@ -27,9 +48,12 @@ function WeatherSummary({
         <i className="bi bi-clock"></i> {currentTime}
       </div>
 
-      <button className="fav-btn">
+      <button
+        className={`fav-btn ${isFavored && "red-back"}`}
+        onClick={handleFavorite}
+      >
         {isFavored ? (
-          <i className="bi bi-heart-fill"></i>
+          <i className="bi bi-heart-fill "></i>
         ) : (
           <i className="bi bi-heart"></i>
         )}

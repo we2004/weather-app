@@ -56,17 +56,19 @@ export type ForecastApiItem = {
   }
 }
 
-export type WeatherSummaryProps = {
+export type WeatherSummaryData = {
   city: string
   cityIcon: string
   mainTemp: number
   weatherDiscription: string
   currentTime: string
-}
+} 
+
+export type WeatherSummaryProps = WeatherSummaryData & {weatherSummaryData: WeatherSummaryData}
 
 export type FavoriteCityCardProps = {
   city: string
-  time: number
+  time: string
   description: string
-  temp: string
+  temp: number
 }

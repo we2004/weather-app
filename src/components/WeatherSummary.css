@@ -69,6 +69,10 @@
   transition: all 0.3s ease;
 }
 
+.red-back {
+  background-color: rgb(194, 0, 0);
+}
+
 .fav-btn:hover {
   background-color: rgb(194, 0, 0);
   width: 30%;
