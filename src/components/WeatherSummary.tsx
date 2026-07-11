@@ -24,7 +24,7 @@ function WeatherSummary({
       </div>
 
       <div className="current-time">
-        <i className="bi bi-clock"></i> {currentTime} AM
+        <i className="bi bi-clock"></i> {currentTime}
       </div>
 
       <button className="fav-btn">

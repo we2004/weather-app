@@ -15,6 +15,7 @@ import {
 import "./WeatherDashboard.css"
 import { getCurrentWeatherData, getForecast } from "../api/weather"
 import { useEffect, useState } from "react"
+import { useSearchParams } from "react-router-dom"
 
 function WeatherDashboard() {
   const [weatherSummaryData, setWeatherSummaryData] =
@@ -29,23 +30,26 @@ function WeatherDashboard() {
     ForecastDayCardProps[] | null
   >(null)
 
+  const [searchParams] = useSearchParams()
+  const search = searchParams.get("search")
+
   useEffect(() => {
     const fetchWeatherData = async () => {
+      const city = search || 'tokyo'
       const { weatherSummaryData, singleCardData, doubleCardData } =
-        await getCurrentWeatherData("china")
+        await getCurrentWeatherData(city)
 
-      const forecast = await getForecast("china")
+      const forecast = await getForecast(city)
 
       setWeatherSummaryData(weatherSummaryData)
       setSingleCardsData(singleCardData)
       setDoubleCardData(doubleCardData)
       setForecastDays(forecast)
-      await getForecast('china')
     }
 
     fetchWeatherData()
       
-  }, [])
+  }, [search])
 
 
 
@@ -146,7 +150,7 @@ function WeatherDashboard() {
         )}
       </div>
 
-      <h2 className="section-title">Forecast</h2>
+      <h2 className="section-title">3-Hour Forecast</h2>
 
       <div className="forecast">
         {forecastDays?.map((day) => (
