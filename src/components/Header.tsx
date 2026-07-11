@@ -1,5 +1,6 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate, useSearchParams } from "react-router-dom"
+import { useState } from "react"
 import "./Header.css"
 
 type HeaderProps = {
@@ -9,6 +10,30 @@ type HeaderProps = {
 function Header({ icon, toHomePage }: HeaderProps) {
   const link = toHomePage ? "/" : "/favorite"
   const iconClass = toHomePage ? "home-icon" : "fav-icon"
+
+  const [searchParams] = useSearchParams()
+  const search = searchParams.get("search")
+  const [searchInput, setSearchInput] = useState(search || "")
+  const navigate = useNavigate()
+
+  //to update the city name as the user is typing
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value)
+  }
+
+  //to display a city when the user clicks the search button
+  const getCityWeather = () => {
+    navigate(`/?search=${searchInput}`)
+  }
+
+  //to display a city when the user clicks enter
+  const handleEnterKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      
+      getCityWeather()
+
+    }
+  }
 
   return (
     <>
@@ -32,8 +57,16 @@ function Header({ icon, toHomePage }: HeaderProps) {
           <input
             type="search"
             placeholder="Search City"
+            value={searchInput}
+            onChange={handleInputChange}
+            onKeyDown={handleEnterKey}
           />
-          <i className="bi bi-search"></i>
+          <button className="search-btn" onClick={getCityWeather}>
+            <i
+              className="bi bi-search"
+              
+            ></i>
+          </button>
         </div>
       </div>
     </>
