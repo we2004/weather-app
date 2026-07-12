@@ -8,17 +8,16 @@ function WeatherSummary({
   mainTemp,
   weatherDiscription,
   currentTime,
-  weatherSummaryData
 }: WeatherSummaryProps) {
   //favorite
   const [isFavored, setIsFavored] = useState(false)
 
   const handleFavorite = () => {
     const favoriteCity = {
-      city: weatherSummaryData!.city,
-      time: weatherSummaryData!.currentTime,
-      description: weatherSummaryData!.weatherDiscription,
-      temp: weatherSummaryData!.mainTemp
+      city: city,
+      time: currentTime,
+      description: weatherDiscription,
+      temp: mainTemp
     }
 
     const favoriteCityList : FavoriteCityCardProps[] =
