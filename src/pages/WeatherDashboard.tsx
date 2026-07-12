@@ -10,7 +10,7 @@ import {
   type SingleCardData,
   type WeatherDoubleCardProps,
   type WeatherSingleCardProps,
-  type WeatherSummaryProps
+  type WeatherSummaryProps,
 } from "../types/weather"
 import "./WeatherDashboard.css"
 import { getCurrentWeatherData, getForecast } from "../api/weather"
@@ -29,13 +29,14 @@ function WeatherDashboard() {
   const [forecastDays, setForecastDays] = useState<
     ForecastDayCardProps[] | null
   >(null)
+ 
 
   const [searchParams] = useSearchParams()
   const search = searchParams.get("search")
 
   useEffect(() => {
     const fetchWeatherData = async () => {
-      const city = search || 'tokyo'
+      const city = search || "tokyo"
       const { weatherSummaryData, singleCardData, doubleCardData } =
         await getCurrentWeatherData(city)
 
@@ -48,10 +49,7 @@ function WeatherDashboard() {
     }
 
     fetchWeatherData()
-      
   }, [search])
-
-
 
   const singleCards: WeatherSingleCardProps[] = [
     {
@@ -109,6 +107,7 @@ function WeatherDashboard() {
     }
   ]
 
+  
   return (
     <>
       <Header
