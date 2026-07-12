@@ -19,6 +19,10 @@ function FavoriteCityCard({
         <div className="time">{time}</div>
 
         <div className="description">{description}</div>
+
+        <button className="remove-btn">
+          <i className="bi bi-trash"></i>
+        </button>
       </div>
 
       <div className="temp-section">{temp}&deg;C</div>
