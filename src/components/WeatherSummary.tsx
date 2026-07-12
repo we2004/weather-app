@@ -1,5 +1,8 @@
-import { type WeatherSummaryProps, type FavoriteCityCardProps } from "../types/weather"
-import { useState } from "react"
+import {
+  type WeatherSummaryProps,
+  type FavoriteCityCardProps
+} from "../types/weather"
+import { useState, useEffect } from "react"
 import "./WeatherSummary.css"
 
 function WeatherSummary({
@@ -7,12 +10,39 @@ function WeatherSummary({
   cityIcon,
   mainTemp,
   weatherDiscription,
-  currentTime,
+  currentTime
 }: WeatherSummaryProps) {
   //favorite
   const [isFavored, setIsFavored] = useState(false)
+  //read the favorite cities list from local storage
+  const favoriteCityList: FavoriteCityCardProps[] = JSON.parse(
+    localStorage.getItem("favoriteCities") || "[]"
+  )
 
+  //checks if a specific city exists or not
+  const checkCityExist = (cardCity: string): boolean => {
+    return favoriteCityList.some((cityInfo) => cityInfo.city === cardCity)
+  }
+
+  useEffect(() => {
+    setIsFavored(checkCityExist(city))
+  }, [city])
+
+  //when favorite button is clicked
   const handleFavorite = () => {
+    //if the city extists remove the city and undo the favorite button
+    if (checkCityExist(city)) {
+      const newList = favoriteCityList.filter(
+        (cityInfo) => cityInfo.city !== city
+      )
+      localStorage.setItem("favoriteCities", JSON.stringify(newList))
+      setIsFavored(false)
+      console.log(newList)
+      return
+    }
+
+    //if the city does not exist
+    //create the object
     const favoriteCity = {
       city: city,
       time: currentTime,
@@ -20,14 +50,13 @@ function WeatherSummary({
       temp: mainTemp
     }
 
-    const favoriteCityList : FavoriteCityCardProps[] =
-      JSON.parse(localStorage.getItem("favoriteCities") || "[]") 
-
+    //add it to the list
     favoriteCityList.push(favoriteCity)
-
+    //add it to local storage
     localStorage.setItem("favoriteCities", JSON.stringify(favoriteCityList))
-    console.log(localStorage.getItem("favoriteCities"))
     setIsFavored(true)
+
+    console.log(localStorage.getItem("favoriteCities"))
   }
 
   return (
