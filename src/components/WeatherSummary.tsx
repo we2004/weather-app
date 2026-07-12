@@ -1,5 +1,6 @@
-import { type WeatherSummaryProps, type FavoriteCityCardProps } from "../types/weather"
+import { type WeatherSummaryProps } from "../types/weather"
 import { useState, useEffect } from "react"
+import { getFavoriteCityList, addCityToStorage, checkCityExist } from "../utils/Favorites"
 import "./WeatherSummary.css"
 
 function WeatherSummary({
@@ -11,18 +12,8 @@ function WeatherSummary({
 }: WeatherSummaryProps) {
   //favorite
   const [isFavored, setIsFavored] = useState(false)
-  //read the favorite cities list from local storage
 
-  const getFavoriteCityList = ( ) : FavoriteCityCardProps[]=> {
-    return JSON.parse(
-    localStorage.getItem("favoriteCities") || "[]"
-  )
-  }
-  //checks if a specific city exists or not
-  const checkCityExist = (cardCity: string): boolean => {
-    const favoriteCityList = getFavoriteCityList()
-    return favoriteCityList.some((cityInfo) => cityInfo.city === cardCity)
-  }
+ 
 
   useEffect(() => {
     setIsFavored(checkCityExist(city))
@@ -36,9 +27,8 @@ function WeatherSummary({
       const newList = favoriteCityList.filter(
         (cityInfo) => cityInfo.city !== city
       )
-      localStorage.setItem("favoriteCities", JSON.stringify(newList))
+      addCityToStorage(newList)
       setIsFavored(false)
-      console.log(newList)
       return
     }
 
@@ -54,10 +44,8 @@ function WeatherSummary({
     //add it to the list
     favoriteCityList.push(favoriteCity)
     //add it to local storage
-    localStorage.setItem("favoriteCities", JSON.stringify(favoriteCityList))
+    addCityToStorage(favoriteCityList)
     setIsFavored(true)
-
-    console.log(localStorage.getItem("favoriteCities"))
   }
 
   return (
