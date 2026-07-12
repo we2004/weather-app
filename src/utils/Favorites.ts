@@ -14,3 +14,9 @@ export const checkCityExist = (cardCity: string): boolean => {
   const favoriteCityList = getFavoriteCityList()
   return favoriteCityList.some((cityInfo) => cityInfo.city === cardCity)
 }
+
+//remove city from favorites
+export const removeCityFromStorage = (city: string, citiesList: FavoriteCityCardProps[]) => {
+  const newList = citiesList.filter((cityInfo) => cityInfo.city !== city)
+  addCityToStorage(newList)
+}

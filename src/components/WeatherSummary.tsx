@@ -1,6 +1,6 @@
 import { type WeatherSummaryProps } from "../types/weather"
 import { useState, useEffect } from "react"
-import { getFavoriteCityList, addCityToStorage, checkCityExist } from "../utils/Favorites"
+import { getFavoriteCityList, addCityToStorage, checkCityExist, removeCityFromStorage } from "../utils/Favorites"
 import "./WeatherSummary.css"
 
 function WeatherSummary({
@@ -24,10 +24,7 @@ function WeatherSummary({
     const favoriteCityList = getFavoriteCityList()
     //if the city extists remove the city and undo the favorite button
     if (checkCityExist(city)) {
-      const newList = favoriteCityList.filter(
-        (cityInfo) => cityInfo.city !== city
-      )
-      addCityToStorage(newList)
+      removeCityFromStorage(city, favoriteCityList)
       setIsFavored(false)
       return
     }

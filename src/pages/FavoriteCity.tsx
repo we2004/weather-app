@@ -3,11 +3,10 @@ import Header from "../components/Header.tsx"
 import { getFavoriteCityList } from "../utils/Favorites.ts"
 import "./FavoriteCity.css"
 
-
-
 function FavoriteCity() {
-
   const favoriteCityList = getFavoriteCityList()
+
+  
   return (
     <>
       <Header

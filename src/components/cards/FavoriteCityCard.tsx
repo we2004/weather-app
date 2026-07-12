@@ -1,6 +1,7 @@
 import { type FavoriteCityCardProps } from "../../types/weather"
 import { NavLink } from "react-router-dom"
 import "./FavoriteCityCard.css"
+import { getFavoriteCityList, removeCityFromStorage } from "../../utils/Favorites"
 
 function FavoriteCityCard({
   city,
@@ -8,6 +9,12 @@ function FavoriteCityCard({
   description,
   temp
 }: FavoriteCityCardProps) {
+  
+  const favoriteCityList = getFavoriteCityList()
+  const handleRemoveBtn = () => {
+    removeCityFromStorage(city, favoriteCityList)
+  }
+
   return (
     <NavLink
       to={"/"}
@@ -20,7 +27,7 @@ function FavoriteCityCard({
 
         <div className="description">{description}</div>
 
-        <button className="remove-btn">
+        <button className="remove-btn" onClick={handleRemoveBtn}>
           <i className="bi bi-trash"></i>
         </button>
       </div>
