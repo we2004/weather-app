@@ -12,7 +12,14 @@
   border-radius: 20px;
   padding: 2rem;
   box-shadow: var(--dark-shadow);
+
+  transition: all ease 0.15s;
 }
+
+.about-card:hover {
+ transform: translateY(-12px);
+}
+
 
 .about-badge {
   display: inline-block;
