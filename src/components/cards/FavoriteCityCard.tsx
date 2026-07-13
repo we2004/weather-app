@@ -1,25 +1,14 @@
 import { type FavoriteCityCardProps } from "../../types/weather"
 import { NavLink } from "react-router-dom"
 import "./FavoriteCityCard.css"
-import {
-  getFavoriteCityList,
-  removeCityFromStorage
-} from "../../utils/Favorites"
 
 function FavoriteCityCard({
+  onRemove,
   city,
   time,
   description,
   temp
 }: FavoriteCityCardProps) {
-  const favoriteCityList = getFavoriteCityList()
-  const handleRemoveBtn = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault() // Prevent the link navigation
-    event.stopPropagation() // Stop the event from reaching the NavLink
-
-    removeCityFromStorage(city, favoriteCityList)
-  }
-
   return (
     <NavLink
       to={`/?search=${city}`}
@@ -34,7 +23,7 @@ function FavoriteCityCard({
 
         <button
           className="remove-btn"
-          onClick={handleRemoveBtn}
+          onClick={(e) => onRemove(e, city)}
         >
           <i className="bi bi-trash"></i>
         </button>

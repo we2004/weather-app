@@ -1,11 +1,11 @@
-import { type FavoriteCityCardProps } from "../types/weather"
+import { type FavoriteCityData } from "../types/weather"
 
 //read the favorite cities list from local storage
-export const getFavoriteCityList = (): FavoriteCityCardProps[] => {
+export const getFavoriteCityList = (): FavoriteCityData[] => {
   return JSON.parse(localStorage.getItem("favoriteCities") || "[]")
 }
 
-export const addCityToStorage = (citiesList: FavoriteCityCardProps[]) => {
+export const addCityToStorage = (citiesList: FavoriteCityData[]) => {
   localStorage.setItem("favoriteCities", JSON.stringify(citiesList))
 }
 
@@ -16,7 +16,10 @@ export const checkCityExist = (cardCity: string): boolean => {
 }
 
 //remove city from favorites
-export const removeCityFromStorage = (city: string, citiesList: FavoriteCityCardProps[]) => {
+export const removeCityFromStorage = (
+  city: string,
+  citiesList: FavoriteCityData[]
+) => {
   const newList = citiesList.filter((cityInfo) => cityInfo.city !== city)
   addCityToStorage(newList)
 }
