@@ -1,6 +1,4 @@
 import { type WeatherSummaryProps } from "../types/weather"
-import { useState, useEffect } from "react"
-import { getFavoriteCityList, addCityToStorage, checkCityExist, removeCityFromStorage } from "../utils/Favorites"
 import "./WeatherSummary.css"
 
 function WeatherSummary({
@@ -10,48 +8,16 @@ function WeatherSummary({
   mainTemp,
   weatherDiscription,
   currentTime,
-  backgroundImageUrl
+  backgroundImageUrl,
+  onAddFavorite,
+  favoriteCityList
 }: WeatherSummaryProps) {
-  //favorite
-  const [isFavored, setIsFavored] = useState(false)
-
  
-
-  useEffect(() => {
-    setIsFavored(checkCityExist(city))
-  }, [city])
-
-  //when favorite button is clicked
-  const handleFavorite = () => {
-    const favoriteCityList = getFavoriteCityList()
-    //if the city extists remove the city and undo the favorite button
-    if (checkCityExist(city)) {
-      removeCityFromStorage(city, favoriteCityList)
-      setIsFavored(false)
-      return
-    }
-
-    //if the city does not exist
-    //create the object
-    const favoriteCity = {
-      city: city,
-      country: country,
-      time: currentTime,
-      description: weatherDiscription,
-      temp: mainTemp,
-      backgroundImageUrl: backgroundImageUrl
-    }
-
-    //add it to the list
-    favoriteCityList.push(favoriteCity)
-    //add it to local storage
-    addCityToStorage(favoriteCityList)
-    setIsFavored(true)
-  }
-
   return (
     <div className="city-general-details">
-      <p className="city-name">{city}, {country}</p>
+      <p className="city-name">
+        {city}, {country}
+      </p>
       <img
         src={cityIcon}
         alt=""
@@ -67,10 +33,19 @@ function WeatherSummary({
       </div>
 
       <button
-        className={`fav-btn ${isFavored && "red-back"}`}
-        onClick={handleFavorite}
+        className={`fav-btn ${favoriteCityList.some((cityInfo) => cityInfo.city === city) && "red-back"}`}
+        onClick={() =>
+          onAddFavorite({
+            city,
+            country,
+            mainTemp,
+            weatherDiscription,
+            currentTime,
+            backgroundImageUrl
+          })
+        }
       >
-        {isFavored ? (
+        {favoriteCityList.some((cityInfo) => cityInfo.city === city) ? (
           <i className="bi bi-heart-fill "></i>
         ) : (
           <i className="bi bi-heart"></i>

@@ -34,7 +34,7 @@ function FavoriteCity() {
         <div className="favorite-city-container">
           {favoriteCityList.map((item) => (
             <FavoriteCityCard
-              key={`${item.city}-${item.time}`}
+              key={`${item.city}-${item.currentTime}`}
               {...item}
               onRemove={handleRemoveBtn}
             />

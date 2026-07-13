@@ -11,7 +11,8 @@ import {
   type SingleCardData,
   type WeatherDoubleCardProps,
   type WeatherSingleCardProps,
-  type WeatherSummaryData
+  type WeatherSummaryData,
+  type WeatherDashboardProps
 } from "../types/weather"
 import "./WeatherDashboard.css"
 import {
@@ -22,7 +23,7 @@ import {
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 
-function WeatherDashboard() {
+function WeatherDashboard({ favoriteCityList ,onAddFavorite} :WeatherDashboardProps ) {
   const [weatherSummaryData, setWeatherSummaryData] =
     useState<WeatherSummaryData | null>(null)
   const [singleCardData, setSingleCardsData] = useState<SingleCardData | null>(
@@ -172,6 +173,8 @@ function WeatherDashboard() {
               mainTemp={weatherSummaryData.mainTemp}
               weatherDiscription={weatherSummaryData.weatherDiscription}
               backgroundImageUrl={backgroundImageUrl}
+              onAddFavorite = {onAddFavorite}
+              favoriteCityList={favoriteCityList}
             />
           )}
         </div>

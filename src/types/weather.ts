@@ -63,6 +63,8 @@ export type WeatherSummaryProps = {
   weatherDiscription: string
   currentTime: string
   backgroundImageUrl: string
+  onAddFavorite: (favoriteCityData: FavoriteCityData) => void
+  favoriteCityList: FavoriteCityData[]
 }
 
 export type WeatherSummaryData = Omit<WeatherSummaryProps, "backgroundImageUrl">
@@ -70,13 +72,18 @@ export type WeatherSummaryData = Omit<WeatherSummaryProps, "backgroundImageUrl">
 export type FavoriteCityData = {
   city: string
   country: string
-  time: string
-  description: string
-  temp: number
+  currentTime: string
+  weatherDiscription: string
+  mainTemp: number
   backgroundImageUrl: string
 }
 
 export type FavoriteCityCardProps = FavoriteCityData & {
   onRemove: (event: React.MouseEvent<HTMLButtonElement>, city: string) => void
   backgroundImageUrl: string
+}
+
+export type WeatherDashboardProps = {
+  onAddFavorite: (favoriteCityData: FavoriteCityData) => void
+  favoriteCityList: FavoriteCityData[]
 }
