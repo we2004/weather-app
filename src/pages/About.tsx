@@ -30,34 +30,35 @@ function About() {
         icon={<i className="bi bi-house-fill"></i>}
         toHomePage={true}
       />
-      
-      <div className="about-page">
-        <section className="about-card">
-          <span className="about-badge">About this app</span>
-          <h2 className="section-title about-title">Weather made simple</h2>
-          <p className="about-text">{aboutText}</p>
+      <div className="page">
+        <div className="about-page">
+          <section className="about-card">
+            <span className="about-badge">About this app</span>
+            <h2 className="section-title about-title">Weather made simple</h2>
+            <p className="about-text">{aboutText}</p>
 
-          <div className="profile-card">
-            <div>
-              <h3>{profileName}</h3>
-              <p>{role}</p>
+            <div className="profile-card">
+              <div>
+                <h3>{profileName}</h3>
+                <p>{role}</p>
+              </div>
             </div>
-          </div>
 
-          <div className="social-links">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="social-link"
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
-        </section>
+            <div className="social-links">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-link"
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
     </>
   )

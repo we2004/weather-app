@@ -4,16 +4,21 @@ import WeatherSummary from "../components/WeatherSummary"
 import WeatherSingleCard from "../components/cards/WeatherSingleCard"
 import WeatherDoubleCard from "../components/cards/WeatherDoubleCard"
 import ForecastDayCard from "../components/cards/ForecastDayCard"
+import Spinner from "../components/Spinner"
 import {
   type DoubleCardData,
   type ForecastDayCardProps,
   type SingleCardData,
   type WeatherDoubleCardProps,
   type WeatherSingleCardProps,
-  type WeatherSummaryData,
+  type WeatherSummaryData
 } from "../types/weather"
 import "./WeatherDashboard.css"
-import { getCurrentWeatherData, getForecast, getUnsplashImage } from "../api/weather"
+import {
+  getCurrentWeatherData,
+  getForecast,
+  getUnsplashImage
+} from "../api/weather"
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 
@@ -30,13 +35,14 @@ function WeatherDashboard() {
     ForecastDayCardProps[] | null
   >(null)
   const [backgroundImageUrl, setBackgroundImageUrl] = useState<string>("")
-
+  const [isLoading, setIsLoading] = useState(false)
   const [searchParams] = useSearchParams()
   const search = searchParams.get("search")
 
   useEffect(() => {
     const fetchWeatherData = async () => {
       const city = search || "tokyo"
+      setIsLoading(true)
       const { weatherSummaryData, singleCardData, doubleCardData } =
         await getCurrentWeatherData(city)
 
@@ -48,6 +54,7 @@ function WeatherDashboard() {
       setDoubleCardData(doubleCardData)
       setForecastDays(forecast)
       setBackgroundImageUrl(unsplashImageUrl)
+      setIsLoading(false)
     }
 
     fetchWeatherData()
@@ -109,67 +116,75 @@ function WeatherDashboard() {
     }
   ]
 
-  
   return (
     <>
+      <div
+        className={`spinner-overlay ${isLoading ? "loading" : "not-loading"}`}
+      >
+        <Spinner />
+      </div>
+
       <Header
         icon={<i className="bi bi-heart-fill"></i>}
         toHomePage={false}
       />
-
-      <h2 className="section-title">Today's Weather</h2>
-
       <div
-        className="today-weather"
-        style={
-          backgroundImageUrl
-            ? {
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${backgroundImageUrl})`
-              }
-            : undefined
-        }
+        className={`container ${isLoading ? "content-hidden" : "content-visible"}`}
       >
-        <div className="weather-details">
-          {singleCards?.map((card) => {
-            return (
-              <WeatherSingleCard
-                key={card.title}
-                {...card}
-              />
-            )
-          })}
+        <h2 className="section-title">Today's Weather</h2>
 
-          {doubleCards?.map((card) => {
-            return (
-              <WeatherDoubleCard
-                key={card.topValue}
-                {...card}
-              />
-            )
-          })}
+        <div
+          className="today-weather"
+          style={
+            backgroundImageUrl
+              ? {
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${backgroundImageUrl})`
+                }
+              : undefined
+          }
+        >
+          <div className="weather-details">
+            {singleCards?.map((card) => {
+              return (
+                <WeatherSingleCard
+                  key={card.title}
+                  {...card}
+                />
+              )
+            })}
+
+            {doubleCards?.map((card) => {
+              return (
+                <WeatherDoubleCard
+                  key={card.topValue}
+                  {...card}
+                />
+              )
+            })}
+          </div>
+
+          {weatherSummaryData && (
+            <WeatherSummary
+              city={weatherSummaryData.city}
+              cityIcon={weatherSummaryData.cityIcon}
+              currentTime={weatherSummaryData.currentTime}
+              mainTemp={weatherSummaryData.mainTemp}
+              weatherDiscription={weatherSummaryData.weatherDiscription}
+              backgroundImageUrl={backgroundImageUrl}
+            />
+          )}
         </div>
 
-        {weatherSummaryData && (
-          <WeatherSummary
-            city={weatherSummaryData.city}
-            cityIcon={weatherSummaryData.cityIcon}
-            currentTime={weatherSummaryData.currentTime}
-            mainTemp={weatherSummaryData.mainTemp}
-            weatherDiscription={weatherSummaryData.weatherDiscription}
-            backgroundImageUrl={backgroundImageUrl}
-          />
-        )}
-      </div>
+        <h2 className="section-title">3-Hour Forecast</h2>
 
-      <h2 className="section-title">3-Hour Forecast</h2>
-
-      <div className="forecast">
-        {forecastDays?.map((day) => (
-          <ForecastDayCard
-            key={day.day}
-            {...day}
-          />
-        ))}
+        <div className="forecast">
+          {forecastDays?.map((day) => (
+            <ForecastDayCard
+              key={day.day}
+              {...day}
+            />
+          ))}
+        </div>
       </div>
     </>
   )

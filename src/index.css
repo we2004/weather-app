@@ -43,3 +43,17 @@ i {
   margin-bottom: 1.5rem;
   margin-top: 1.5rem;
 }
+
+.page {
+  opacity: 0;
+  transform: translateY(10px);
+
+  animation: page-enter 300ms ease forwards;
+}
+
+@keyframes page-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

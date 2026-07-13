@@ -1,12 +1,13 @@
-
-
 .today-weather {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   gap: 2rem;
   padding: 2rem;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35));
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.35)
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,4 +30,16 @@
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 2rem;
+}
+
+.container {
+  transition: opacity 0.3s ease;
+}
+
+.content-hidden {
+  opacity: 0;
+}
+
+.content-visible {
+  opacity: 1;
 }
