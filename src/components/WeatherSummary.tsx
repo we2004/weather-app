@@ -12,6 +12,8 @@ function WeatherSummary({
   onFavorite,
   favoriteCityList
 }: WeatherSummaryProps) {
+
+  const isFavored = favoriteCityList.some((cityInfo) => cityInfo.city === city)
  
   return (
     <div className="city-general-details">
@@ -33,7 +35,7 @@ function WeatherSummary({
       </div>
 
       <button
-        className={`fav-btn ${favoriteCityList.some((cityInfo) => cityInfo.city === city) && "red-back"}`}
+        className={`fav-btn ${isFavored && "red-back"}`}
         onClick={() =>
           onFavorite({
             city,
@@ -45,7 +47,7 @@ function WeatherSummary({
           })
         }
       >
-        {favoriteCityList.some((cityInfo) => cityInfo.city === city) ? (
+        {isFavored ? (
           <i className="bi bi-heart-fill "></i>
         ) : (
           <i className="bi bi-heart"></i>

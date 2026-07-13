@@ -1,26 +1,13 @@
 import FavoriteCityCard from "../components/cards/FavoriteCityCard"
 import Header from "../components/Header.tsx"
-import {
-  getFavoriteCityList,
-  removeCityFromStorage
-} from "../utils/Favorites.ts"
-import { useState } from "react"
-
 import "./FavoriteCity.css"
+import type { FavoriteCityProps } from "../types/weather.ts"
 
-function FavoriteCity() {
-  const [favoriteCityList, setFavoriteCityList] = useState(getFavoriteCityList)
-
-  const handleRemoveBtn = (
-    event: React.MouseEvent<HTMLButtonElement>,
-    city: string
-  ) => {
-    event.preventDefault() // Prevent the link navigation
-    event.stopPropagation() // Stop the event from reaching the NavLink
-
-    removeCityFromStorage(city, favoriteCityList)
-    setFavoriteCityList(getFavoriteCityList())
-  }
+function FavoriteCity({
+  favoriteCityList,
+  onRemoveFavorite
+}: FavoriteCityProps) {
+  
 
   return (
     <>
@@ -32,11 +19,11 @@ function FavoriteCity() {
         <h2 className="section-title favorite-page">Favorite Cities</h2>
 
         <div className="favorite-city-container">
-          {favoriteCityList.map((item) => (
+          {favoriteCityList.map((item,idx) => (
             <FavoriteCityCard
-              key={`${item.city}-${item.currentTime}`}
+              key={`${item.city}-${item.currentTime}-${idx}`}
               {...item}
-              onRemove={handleRemoveBtn}
+              onRemoveFavorite={onRemoveFavorite}
             />
           ))}
         </div>

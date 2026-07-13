@@ -38,6 +38,7 @@ export type ForecastDayCardProps = {
   dayDescription: string
   dayCloud: number
   dayTemp: number
+  dayRain:number
 }
 
 export type ForecastApiItem = {
@@ -79,7 +80,7 @@ export type FavoriteCityData = {
 }
 
 export type FavoriteCityCardProps = FavoriteCityData & {
-  onRemove: (event: React.MouseEvent<HTMLButtonElement>, city: string) => void
+  onRemoveFavorite: (city: string) => void
   backgroundImageUrl: string
 }
 
@@ -87,3 +88,9 @@ export type WeatherDashboardProps = {
   onFavorite: (favoriteCityData: FavoriteCityData) => void
   favoriteCityList: FavoriteCityData[]
 }
+
+export type FavoriteCityProps = {
+  onRemoveFavorite: (city: string) => void
+  favoriteCityList: FavoriteCityData[]
+}
+

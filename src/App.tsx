@@ -45,28 +45,14 @@ function App() {
     addCityToStorage(newList)
   }
 
-  const toggleFavorite = ({
-    city,
-    country,
-    currentTime,
-    weatherDiscription,
-    mainTemp,
-    backgroundImageUrl
-  }: FavoriteCityData) => {
+  const toggleFavorite = (favoriteCity: FavoriteCityData) => {
     //if the city extists remove the city and undo the favorite button
-    if (favoriteCityList.some((cityInfo) => cityInfo.city === city)) {
-      removeFavorite(city)
+    if (favoriteCityList.some((cityInfo) => cityInfo.city === favoriteCity.city)) {
+      removeFavorite(favoriteCity.city)
       return
     }
 
-    addFavorite({
-      city,
-      country,
-      currentTime,
-      weatherDiscription,
-      mainTemp,
-      backgroundImageUrl
-    })
+    addFavorite(favoriteCity)
   }
 
   return (
@@ -83,7 +69,9 @@ function App() {
 
       <Route
         path="favorite"
-        element={<FavoriteCity />}
+        element={<FavoriteCity 
+          favoriteCityList={favoriteCityList}
+          onRemoveFavorite={removeFavorite}/>}
       />
 
       <Route

@@ -3,14 +3,21 @@ import { NavLink } from "react-router-dom"
 import "./FavoriteCityCard.css"
 
 function FavoriteCityCard({
-  onRemove,
+  onRemoveFavorite,
   city,
   country,
-  time,
-  description,
-  temp,
+  currentTime,
+  weatherDiscription,
+  mainTemp,
   backgroundImageUrl
 }: FavoriteCityCardProps) {
+  const handleRemoveBtn = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault() // Prevent the link navigation
+    event.stopPropagation() // Stop the event from reaching the NavLink
+
+    onRemoveFavorite(city)
+  }
+
   return (
     <NavLink
       to={`/?search=${city}`}
@@ -24,21 +31,23 @@ function FavoriteCityCard({
       }
     >
       <div className="data-section">
-        <div className="city-name">{city}, {country}</div>
+        <div className="city-name">
+          {city}, {country}
+        </div>
 
-        <div className="time">{time}</div>
+        <div className="time">{currentTime}</div>
 
-        <div className="description">{description}</div>
+        <div className="description">{weatherDiscription}</div>
 
         <button
           className="remove-btn"
-          onClick={(e) => onRemove(e, city)}
+          onClick={handleRemoveBtn}
         >
           <i className="bi bi-trash"></i>
         </button>
       </div>
 
-      <div className="temp-section">{temp}&deg;C</div>
+      <div className="temp-section">{mainTemp}&deg;C</div>
     </NavLink>
   )
 }
