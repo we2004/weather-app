@@ -124,12 +124,13 @@ function WeatherDashboard() {
         <Spinner />
       </div>
 
-      <div className={`container ${isLoading ? "content-hidden" : "content-visible"}`}>
-        <Header
-          icon={<i className="bi bi-heart-fill"></i>}
-          toHomePage={false}
-        />
-
+      <Header
+        icon={<i className="bi bi-heart-fill"></i>}
+        toHomePage={false}
+      />
+      <div
+        className={`container ${isLoading ? "content-hidden" : "content-visible"}`}
+      >
         <h2 className="section-title">Today's Weather</h2>
 
         <div
