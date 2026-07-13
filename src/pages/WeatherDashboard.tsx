@@ -124,7 +124,7 @@ function WeatherDashboard() {
         style={
           backgroundImageUrl
             ? {
-                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url(${backgroundImageUrl})`
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${backgroundImageUrl})`
               }
             : undefined
         }
@@ -156,6 +156,7 @@ function WeatherDashboard() {
             currentTime={weatherSummaryData.currentTime}
             mainTemp={weatherSummaryData.mainTemp}
             weatherDiscription={weatherSummaryData.weatherDiscription}
+            backgroundImageUrl={backgroundImageUrl}
           />
         )}
       </div>

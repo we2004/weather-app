@@ -7,12 +7,20 @@ function FavoriteCityCard({
   city,
   time,
   description,
-  temp
+  temp,
+  backgroundImageUrl
 }: FavoriteCityCardProps) {
   return (
     <NavLink
       to={`/?search=${city}`}
       className="favorite-city-card"
+      style={
+        backgroundImageUrl
+          ? {
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${backgroundImageUrl})`
+            }
+          : undefined
+      }
     >
       <div className="data-section">
         <div className="city-name">{city}</div>

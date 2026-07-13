@@ -61,6 +61,7 @@ export type WeatherSummaryProps = {
   mainTemp: number
   weatherDiscription: string
   currentTime: string
+  backgroundImageUrl:string
 }
 
 export type FavoriteCityData = {
@@ -68,8 +69,10 @@ export type FavoriteCityData = {
   time: string
   description: string
   temp: number
+  backgroundImageUrl:string
 }
 
 export type FavoriteCityCardProps = FavoriteCityData & {
   onRemove: (event: React.MouseEvent<HTMLButtonElement>, city: string) => void
+  backgroundImageUrl:string
 }

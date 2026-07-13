@@ -8,7 +8,8 @@ function WeatherSummary({
   cityIcon,
   mainTemp,
   weatherDiscription,
-  currentTime
+  currentTime,
+  backgroundImageUrl
 }: WeatherSummaryProps) {
   //favorite
   const [isFavored, setIsFavored] = useState(false)
@@ -35,7 +36,8 @@ function WeatherSummary({
       city: city,
       time: currentTime,
       description: weatherDiscription,
-      temp: mainTemp
+      temp: mainTemp,
+      backgroundImageUrl: backgroundImageUrl
     }
 
     //add it to the list
