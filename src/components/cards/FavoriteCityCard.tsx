@@ -5,6 +5,7 @@ import "./FavoriteCityCard.css"
 function FavoriteCityCard({
   onRemove,
   city,
+  country,
   time,
   description,
   temp,
@@ -23,7 +24,7 @@ function FavoriteCityCard({
       }
     >
       <div className="data-section">
-        <div className="city-name">{city}</div>
+        <div className="city-name">{city}, {country}</div>
 
         <div className="time">{time}</div>
 

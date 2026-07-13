@@ -5,6 +5,7 @@ import "./WeatherSummary.css"
 
 function WeatherSummary({
   city,
+  country,
   cityIcon,
   mainTemp,
   weatherDiscription,
@@ -34,6 +35,7 @@ function WeatherSummary({
     //create the object
     const favoriteCity = {
       city: city,
+      country: country,
       time: currentTime,
       description: weatherDiscription,
       temp: mainTemp,
@@ -49,7 +51,7 @@ function WeatherSummary({
 
   return (
     <div className="city-general-details">
-      <p className="city-name">{city}</p>
+      <p className="city-name">{city}, {country}</p>
       <img
         src={cityIcon}
         alt=""

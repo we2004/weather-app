@@ -166,6 +166,7 @@ function WeatherDashboard() {
           {weatherSummaryData && (
             <WeatherSummary
               city={weatherSummaryData.city}
+              country={weatherSummaryData.country}
               cityIcon={weatherSummaryData.cityIcon}
               currentTime={weatherSummaryData.currentTime}
               mainTemp={weatherSummaryData.mainTemp}

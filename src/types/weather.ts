@@ -57,24 +57,26 @@ export type ForecastApiItem = {
 
 export type WeatherSummaryProps = {
   city: string
+  country: string
   cityIcon: string
   mainTemp: number
   weatherDiscription: string
   currentTime: string
-  backgroundImageUrl:string
+  backgroundImageUrl: string
 }
 
-export type WeatherSummaryData = Omit<WeatherSummaryProps, 'backgroundImageUrl'>
+export type WeatherSummaryData = Omit<WeatherSummaryProps, "backgroundImageUrl">
 
 export type FavoriteCityData = {
   city: string
+  country: string
   time: string
   description: string
   temp: number
-  backgroundImageUrl:string
+  backgroundImageUrl: string
 }
 
 export type FavoriteCityCardProps = FavoriteCityData & {
   onRemove: (event: React.MouseEvent<HTMLButtonElement>, city: string) => void
-  backgroundImageUrl:string
+  backgroundImageUrl: string
 }

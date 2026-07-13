@@ -27,6 +27,7 @@ export const getCurrentWeatherData = async (city: string) => {
 
   const weatherSummaryData: WeatherSummaryData = {
     city: name,
+    country: sys.country,
     cityIcon: getWeatherIconUrl(weather[0].icon),
     currentTime: dayjs.unix(dt).format("h:mm A"),
     mainTemp: main.temp,
