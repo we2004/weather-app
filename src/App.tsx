@@ -4,24 +4,21 @@ import About from "./pages/About"
 import FavoriteCity from "./pages/FavoriteCity"
 import { getFavoriteCityList } from "./utils/Favorites"
 import { useState } from "react"
-import { addCityToStorage} from "./utils/Favorites"
+import { addCityToStorage } from "./utils/Favorites"
 import type { FavoriteCityData } from "./types/weather"
 
 function App() {
   const [favoriteCityList, setFavoriteCityList] = useState(getFavoriteCityList)
-  
 
   //when favorite button is clicked
-  const addFavorite = ({city, country, currentTime, weatherDiscription, mainTemp, backgroundImageUrl}:FavoriteCityData) => {
-
-    //if the city extists remove the city and undo the favorite button
-    if (favoriteCityList.some((cityInfo) => cityInfo.city === city)) {
-      const newList = favoriteCityList.filter((cityInfo) => cityInfo.city !== city)
-      setFavoriteCityList(newList)
-      addCityToStorage(newList)
-      return
-    }
-
+  const addFavorite = ({
+    city,
+    country,
+    currentTime,
+    weatherDiscription,
+    mainTemp,
+    backgroundImageUrl
+  }: FavoriteCityData) => {
     //if the city does not exist
     //create the object
     const favoriteCity = {
@@ -40,12 +37,48 @@ function App() {
     addCityToStorage(newList)
   }
 
+  const removeFavorite = (city: string) => {
+    const newList = favoriteCityList.filter(
+      (cityInfo) => cityInfo.city !== city
+    )
+    setFavoriteCityList(newList)
+    addCityToStorage(newList)
+  }
+
+  const toggleFavorite = ({
+    city,
+    country,
+    currentTime,
+    weatherDiscription,
+    mainTemp,
+    backgroundImageUrl
+  }: FavoriteCityData) => {
+    //if the city extists remove the city and undo the favorite button
+    if (favoriteCityList.some((cityInfo) => cityInfo.city === city)) {
+      removeFavorite(city)
+      return
+    }
+
+    addFavorite({
+      city,
+      country,
+      currentTime,
+      weatherDiscription,
+      mainTemp,
+      backgroundImageUrl
+    })
+  }
 
   return (
     <Routes>
       <Route
         index
-        element={<WeatherDashboard favoriteCityList={favoriteCityList} onAddFavorite={addFavorite}/>}
+        element={
+          <WeatherDashboard
+            favoriteCityList={favoriteCityList}
+            onFavorite={toggleFavorite}
+          />
+        }
       />
 
       <Route

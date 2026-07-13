@@ -9,7 +9,7 @@ function WeatherSummary({
   weatherDiscription,
   currentTime,
   backgroundImageUrl,
-  onAddFavorite,
+  onFavorite,
   favoriteCityList
 }: WeatherSummaryProps) {
  
@@ -35,7 +35,7 @@ function WeatherSummary({
       <button
         className={`fav-btn ${favoriteCityList.some((cityInfo) => cityInfo.city === city) && "red-back"}`}
         onClick={() =>
-          onAddFavorite({
+          onFavorite({
             city,
             country,
             mainTemp,

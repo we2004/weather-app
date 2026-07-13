@@ -63,7 +63,7 @@ export type WeatherSummaryProps = {
   weatherDiscription: string
   currentTime: string
   backgroundImageUrl: string
-  onAddFavorite: (favoriteCityData: FavoriteCityData) => void
+  onFavorite: (favoriteCityData: FavoriteCityData) => void
   favoriteCityList: FavoriteCityData[]
 }
 
@@ -84,6 +84,6 @@ export type FavoriteCityCardProps = FavoriteCityData & {
 }
 
 export type WeatherDashboardProps = {
-  onAddFavorite: (favoriteCityData: FavoriteCityData) => void
+  onFavorite: (favoriteCityData: FavoriteCityData) => void
   favoriteCityList: FavoriteCityData[]
 }
