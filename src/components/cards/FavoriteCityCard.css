@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   width: 70%;
-  height: 130px;
+  height: 140px;
   border-radius: 20px;
   box-shadow: var(--dark-shadow);
   overflow: hidden;
@@ -59,4 +59,31 @@
 .temp-section {
   font-size: 1.9rem;
   font-weight: 700;
+}
+
+.remove-btn {
+  color: var(--light-background);
+  font-size: 15px;
+  background-color: #0353a4;
+  border: none;
+  border-radius: 25px;
+  width: 50%;
+  padding: 3px 0;
+  margin-top: 8px;
+
+  box-shadow: var(--dark-shadow);
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: rgb(194, 0, 0);
+  width: 60%;
+}
+
+
+.remove-btn i {
+  width: 19px;
+  height: 19px;
 }

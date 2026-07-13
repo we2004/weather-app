@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom"
 import "./FavoriteCityCard.css"
 
 function FavoriteCityCard({
+  onRemove,
   city,
   time,
   description,
@@ -10,7 +11,7 @@ function FavoriteCityCard({
 }: FavoriteCityCardProps) {
   return (
     <NavLink
-      to={"/"}
+      to={`/?search=${city}`}
       className="favorite-city-card"
     >
       <div className="data-section">
@@ -19,6 +20,13 @@ function FavoriteCityCard({
         <div className="time">{time}</div>
 
         <div className="description">{description}</div>
+
+        <button
+          className="remove-btn"
+          onClick={(e) => onRemove(e, city)}
+        >
+          <i className="bi bi-trash"></i>
+        </button>
       </div>
 
       <div className="temp-section">{temp}&deg;C</div>

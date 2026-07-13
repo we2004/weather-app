@@ -40,7 +40,6 @@ export type ForecastDayCardProps = {
   dayTemp: number
 }
 
-
 export type ForecastApiItem = {
   dt: number
   main: {
@@ -62,12 +61,15 @@ export type WeatherSummaryProps = {
   mainTemp: number
   weatherDiscription: string
   currentTime: string
-} 
+}
 
-
-export type FavoriteCityCardProps = {
+export type FavoriteCityData = {
   city: string
   time: string
   description: string
   temp: number
+}
+
+export type FavoriteCityCardProps = FavoriteCityData & {
+  onRemove: (event: React.MouseEvent<HTMLButtonElement>, city: string) => void
 }

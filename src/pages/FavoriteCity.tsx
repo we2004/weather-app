@@ -1,13 +1,22 @@
 import FavoriteCityCard from "../components/cards/FavoriteCityCard"
 import Header from "../components/Header.tsx"
-import { getFavoriteCityList } from "../utils/Favorites.ts"
+import { getFavoriteCityList, removeCityFromStorage } from "../utils/Favorites.ts"
+import { useState } from "react"
+
 import "./FavoriteCity.css"
-
-
 
 function FavoriteCity() {
 
-  const favoriteCityList = getFavoriteCityList()
+  const [favoriteCityList, setFavoriteCityList] = useState(getFavoriteCityList)
+
+  const handleRemoveBtn = (event: React.MouseEvent<HTMLButtonElement>, city:string) => {
+    event.preventDefault() // Prevent the link navigation
+    event.stopPropagation() // Stop the event from reaching the NavLink
+
+    removeCityFromStorage(city, favoriteCityList)
+    setFavoriteCityList(getFavoriteCityList())
+  }
+
   return (
     <>
       <Header
@@ -22,6 +31,7 @@ function FavoriteCity() {
           <FavoriteCityCard
             key={`${item.city}-${item.time}`}
             {...item}
+            onRemove={handleRemoveBtn}
           />
         ))}
       </div>
