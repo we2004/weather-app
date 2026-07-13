@@ -118,71 +118,73 @@ function WeatherDashboard() {
 
   return (
     <>
-      {isLoading ? (
+      <div
+        className={`spinner-overlay ${isLoading ? "loading" : "not-loading"}`}
+      >
         <Spinner />
-      ) : (
-        <>
-          <Header
-            icon={<i className="bi bi-heart-fill"></i>}
-            toHomePage={false}
-          />
+      </div>
 
-          <h2 className="section-title">Today's Weather</h2>
+      <div className={`container ${isLoading ? "content-hidden" : "content-visible"}`}>
+        <Header
+          icon={<i className="bi bi-heart-fill"></i>}
+          toHomePage={false}
+        />
 
-          <div
-            className="today-weather"
-            style={
-              backgroundImageUrl
-                ? {
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${backgroundImageUrl})`
-                  }
-                : undefined
-            }
-          >
-            <div className="weather-details">
-              {singleCards?.map((card) => {
-                return (
-                  <WeatherSingleCard
-                    key={card.title}
-                    {...card}
-                  />
-                )
-              })}
+        <h2 className="section-title">Today's Weather</h2>
 
-              {doubleCards?.map((card) => {
-                return (
-                  <WeatherDoubleCard
-                    key={card.topValue}
-                    {...card}
-                  />
-                )
-              })}
-            </div>
+        <div
+          className="today-weather"
+          style={
+            backgroundImageUrl
+              ? {
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${backgroundImageUrl})`
+                }
+              : undefined
+          }
+        >
+          <div className="weather-details">
+            {singleCards?.map((card) => {
+              return (
+                <WeatherSingleCard
+                  key={card.title}
+                  {...card}
+                />
+              )
+            })}
 
-            {weatherSummaryData && (
-              <WeatherSummary
-                city={weatherSummaryData.city}
-                cityIcon={weatherSummaryData.cityIcon}
-                currentTime={weatherSummaryData.currentTime}
-                mainTemp={weatherSummaryData.mainTemp}
-                weatherDiscription={weatherSummaryData.weatherDiscription}
-                backgroundImageUrl={backgroundImageUrl}
-              />
-            )}
+            {doubleCards?.map((card) => {
+              return (
+                <WeatherDoubleCard
+                  key={card.topValue}
+                  {...card}
+                />
+              )
+            })}
           </div>
 
-          <h2 className="section-title">3-Hour Forecast</h2>
+          {weatherSummaryData && (
+            <WeatherSummary
+              city={weatherSummaryData.city}
+              cityIcon={weatherSummaryData.cityIcon}
+              currentTime={weatherSummaryData.currentTime}
+              mainTemp={weatherSummaryData.mainTemp}
+              weatherDiscription={weatherSummaryData.weatherDiscription}
+              backgroundImageUrl={backgroundImageUrl}
+            />
+          )}
+        </div>
 
-          <div className="forecast">
-            {forecastDays?.map((day) => (
-              <ForecastDayCard
-                key={day.day}
-                {...day}
-              />
-            ))}
-          </div>
-        </>
-      )}
+        <h2 className="section-title">3-Hour Forecast</h2>
+
+        <div className="forecast">
+          {forecastDays?.map((day) => (
+            <ForecastDayCard
+              key={day.day}
+              {...day}
+            />
+          ))}
+        </div>
+      </div>
     </>
   )
 }
