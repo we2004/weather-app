@@ -64,6 +64,8 @@ export type WeatherSummaryProps = {
   backgroundImageUrl:string
 }
 
+export type WeatherSummaryData = Omit<WeatherSummaryProps, 'backgroundImageUrl'>
+
 export type FavoriteCityData = {
   city: string
   time: string

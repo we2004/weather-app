@@ -10,7 +10,7 @@ import {
   type SingleCardData,
   type WeatherDoubleCardProps,
   type WeatherSingleCardProps,
-  type WeatherSummaryProps,
+  type WeatherSummaryData,
 } from "../types/weather"
 import "./WeatherDashboard.css"
 import { getCurrentWeatherData, getForecast, getUnsplashImage } from "../api/weather"
@@ -19,7 +19,7 @@ import { useSearchParams } from "react-router-dom"
 
 function WeatherDashboard() {
   const [weatherSummaryData, setWeatherSummaryData] =
-    useState<WeatherSummaryProps | null>(null)
+    useState<WeatherSummaryData | null>(null)
   const [singleCardData, setSingleCardsData] = useState<SingleCardData | null>(
     null
   )
