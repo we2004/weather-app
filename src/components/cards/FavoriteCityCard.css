@@ -67,7 +67,7 @@
   background-color: #0353a4;
   border: none;
   border-radius: 25px;
-  width: 50%;
+  width: 70px;
   padding: 3px 0;
   margin-top: 8px;
 
@@ -79,7 +79,7 @@
 
 .remove-btn:hover {
   background-color: rgb(194, 0, 0);
-  width: 60%;
+  width: 80px;
 }
 
 
