@@ -13,7 +13,7 @@ import {
   type WeatherSummaryProps,
 } from "../types/weather"
 import "./WeatherDashboard.css"
-import { getCurrentWeatherData, getForecast } from "../api/weather"
+import { getCurrentWeatherData, getForecast, getUnsplashImage } from "../api/weather"
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 
@@ -29,7 +29,7 @@ function WeatherDashboard() {
   const [forecastDays, setForecastDays] = useState<
     ForecastDayCardProps[] | null
   >(null)
- 
+  const [backgroundImageUrl, setBackgroundImageUrl] = useState<string>("")
 
   const [searchParams] = useSearchParams()
   const search = searchParams.get("search")
@@ -41,11 +41,13 @@ function WeatherDashboard() {
         await getCurrentWeatherData(city)
 
       const forecast = await getForecast(city)
+      const unsplashImageUrl = await getUnsplashImage(city)
 
       setWeatherSummaryData(weatherSummaryData)
       setSingleCardsData(singleCardData)
       setDoubleCardData(doubleCardData)
       setForecastDays(forecast)
+      setBackgroundImageUrl(unsplashImageUrl)
     }
 
     fetchWeatherData()
@@ -117,7 +119,16 @@ function WeatherDashboard() {
 
       <h2 className="section-title">Today's Weather</h2>
 
-      <div className="today-weather">
+      <div
+        className="today-weather"
+        style={
+          backgroundImageUrl
+            ? {
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${backgroundImageUrl})`
+              }
+            : undefined
+        }
+      >
         <div className="weather-details">
           {singleCards?.map((card) => {
             return (
@@ -145,6 +156,7 @@ function WeatherDashboard() {
             currentTime={weatherSummaryData.currentTime}
             mainTemp={weatherSummaryData.mainTemp}
             weatherDiscription={weatherSummaryData.weatherDiscription}
+            backgroundImageUrl={backgroundImageUrl}
           />
         )}
       </div>

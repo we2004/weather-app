@@ -13,6 +13,8 @@ const weatherApiKey = import.meta.env.VITE_WEATHER_API_KEY
 const currentWeatherBaseURL = import.meta.env.VITE_WEATHER_CURRENT_URL
 const geoURL = import.meta.env.VITE_WEATHER_GEO_URL
 const forecastURL = import.meta.env.VITE_WEATHER_FORECAST_URL
+const unsplashAccessKey = import.meta.env.VITE_UNSPLASH_API_ACCESS_KEY
+const unsplashSearchUrl = import.meta.env.VITE_UNSPLASH_SEARCH_URL
 
 export const getCurrentWeatherData = async (city: string) => {
   const { lat, lon } = await getCityCoords(city)
@@ -53,6 +55,14 @@ export const getCurrentWeatherData = async (city: string) => {
     singleCardData,
     doubleCardData
   }
+}
+
+export const getUnsplashImage = async (city: string) => {
+  const response = await axios(
+    `${unsplashSearchUrl}?query=${encodeURIComponent(city)}&per_page=1&orientation=landscape&client_id=${unsplashAccessKey}`
+  )
+
+  return response.data.results?.[0]?.urls?.regular ?? ""
 }
 
 export const getForecast = async (city: string) => {
