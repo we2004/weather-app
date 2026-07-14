@@ -43,3 +43,39 @@
 .content-visible {
   opacity: 1;
 }
+
+@media (max-width: 1066px) {
+  .today-weather {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .weather-details {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+  }
+
+  .city-general-details {
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  .city-general-details .city-name {
+    width: min(100%, 320px);
+  }
+
+  .fav-btn {
+    width: 140px;
+  }
+}
+
+@media (max-width: 1027px) {
+}
+@media (max-width: 900px) {
+}
+@media (max-width: 730px) {
+}
+@media (max-width: 590px) {
+}
