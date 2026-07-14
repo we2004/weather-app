@@ -25,11 +25,10 @@
 }
 
 .forecast {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+  justify-items: center;
 }
 
 .container {
@@ -62,6 +61,11 @@
   .double-info-card {
     width: 100%;
     min-width: 0;
+  }
+
+  .forecast {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    justify-items: stretch;
   }
 
   .city-general-details {
