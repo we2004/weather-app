@@ -53,8 +53,15 @@
 
   .weather-details {
     width: 100%;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    justify-items: center;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    justify-items: stretch;
+  }
+
+  .single-info-card,
+  .double-info-card {
+    width: 100%;
+    min-width: 0;
   }
 
   .city-general-details {
