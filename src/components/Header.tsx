@@ -29,29 +29,29 @@ function Header({ icon, toHomePage }: HeaderProps) {
   //to display a city when the user clicks enter
   const handleEnterKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      
       getCityWeather()
-
     }
   }
 
   return (
     <>
       <div className="header">
-        <div className="logo">9eather</div>
-        <NavLink
-          to={link}
-          className={iconClass}
-        >
-          {icon}
-        </NavLink>
+        <div className="left-section">
+          <div className="logo">9eather</div>
+          <NavLink
+            to={link}
+            className={iconClass}
+          >
+            {icon}
+          </NavLink>
 
-        <NavLink
-          to="/about"
-          className="about-icon"
-        >
-          <i className="bi bi-info-circle"></i>
-        </NavLink>
+          <NavLink
+            to="/about"
+            className="about-icon"
+          >
+            <i className="bi bi-info-circle"></i>
+          </NavLink>
+        </div>
 
         <div className="search-bar">
           <input
@@ -61,11 +61,11 @@ function Header({ icon, toHomePage }: HeaderProps) {
             onChange={handleInputChange}
             onKeyDown={handleEnterKey}
           />
-          <button className="search-btn" onClick={getCityWeather}>
-            <i
-              className="bi bi-search"
-              
-            ></i>
+          <button
+            className="search-btn"
+            onClick={getCityWeather}
+          >
+            <i className="bi bi-search"></i>
           </button>
         </div>
       </div>
