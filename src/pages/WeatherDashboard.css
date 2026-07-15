@@ -66,12 +66,6 @@
     justify-items: stretch;
   }
 
-  .single-info-card,
-  .double-info-card {
-    width: 100%;
-    min-width: 0;
-  }
-
   .forecast {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     justify-items: stretch;
@@ -90,12 +84,8 @@
   .forecast {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-
-  .day-card {
-    width: 100%;
-    max-width: 100%;
-  }
 }
+
 @media (max-width: 730px) {
   .today-weather {
     padding: 1rem;
