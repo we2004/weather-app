@@ -80,7 +80,8 @@ export const getUnsplashImage = async (city: string) => {
     `${unsplashSearchUrl}?query=${encodeURIComponent(city)}&per_page=1&orientation=landscape&client_id=${unsplashAccessKey}`
   )
 
-  return response.data.results?.[0]?.urls?.regular ?? ""
+  // return response.data.results?.[0]?.urls?.regular ?? ""
+  return response.data.results[0].urls.regular 
 }
 
 export const getForecast = async (lat: number, lon: number) => {

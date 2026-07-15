@@ -7,7 +7,7 @@
 
 .error-card {
   width: min(100%, 620px);
-  background-color: var(--main-card-background);
+  background-color: rgb(143, 10, 10);
   color: var(--light-background);
   border-radius: 20px;
   padding: 2rem;
