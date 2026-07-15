@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import WeatherDashboard from "./pages/WeatherDashboard"
 import About from "./pages/About"
 import FavoriteCity from "./pages/FavoriteCity"
+import NotFound from "./pages/NotFound"
 import { getFavoriteCityList } from "./utils/Favorites"
 import { useState } from "react"
 import { addCityToStorage } from "./utils/Favorites"
@@ -77,6 +78,11 @@ function App() {
       <Route
         path="about"
         element={<About />}
+      />
+
+      <Route
+        path="*"
+        element={<NotFound />}
       />
     </Routes>
   )
