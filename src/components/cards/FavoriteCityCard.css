@@ -11,8 +11,7 @@
   overflow: hidden;
 
   padding: 0 20px;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -82,8 +81,39 @@
   width: 80px;
 }
 
-
 .remove-btn i {
   width: 19px;
   height: 19px;
+}
+
+@media (max-width: 730px) {
+  .city-name {
+    font-size: 1.3rem;
+  }
+
+  .time,
+  .description {
+    font-size: 1rem;
+  }
+
+  .favorite-city-card {
+    width: 600px;
+  }
+}
+
+@media (max-width: 590px) {
+  .favorite-city-card {
+    width: 400px;
+  }
+}
+
+@media(max-width: 391px) {
+   .favorite-city-card {
+    width: 350px;
+  }
+
+  .description {
+    display: none;
+
+  }
 }

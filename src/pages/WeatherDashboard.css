@@ -138,6 +138,7 @@
     width: min(100%, 240px);
   }
 }
+
 @media (max-width: 590px) {
   .today-weather {
     padding: 0.875rem;
