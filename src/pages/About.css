@@ -17,9 +17,8 @@
 }
 
 .about-card:hover {
- transform: translateY(-12px);
+  transform: translateY(-12px);
 }
-
 
 .about-badge {
   display: inline-block;
@@ -82,3 +81,18 @@
   transform: translateY(-2px);
   background: var(--text-background);
 }
+
+
+@media (max-width: 590px) {
+  .about-page {
+    text-align: center;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+}
+
