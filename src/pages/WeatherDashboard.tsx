@@ -37,14 +37,15 @@ function WeatherDashboard({
   const [forecastDays, setForecastDays] = useState<
     ForecastDayCardProps[] | null
   >(null)
-  const [backgroundImageUrl, setBackgroundImageUrl] = useState<string>("")
+  const [backgroundImageUrl, setBackgroundImageUrl] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [searchParams] = useSearchParams()
+
   const search = searchParams.get("search")
 
   useEffect(() => {
     const fetchWeatherData = async () => {
-      const city = search || "tokyo"
+      const city = search || "Jeddah"
 
       setIsLoading(true)
 
@@ -149,12 +150,7 @@ function WeatherDashboard({
         >
           {weatherSummaryData && (
             <WeatherSummary
-              city={weatherSummaryData.city}
-              country={weatherSummaryData.country}
-              cityIcon={weatherSummaryData.cityIcon}
-              currentTime={weatherSummaryData.currentTime}
-              mainTemp={weatherSummaryData.mainTemp}
-              weatherDiscription={weatherSummaryData.weatherDiscription}
+              {...weatherSummaryData}
               backgroundImageUrl={backgroundImageUrl}
               onFavorite={onFavorite}
               favoriteCityList={favoriteCityList}
