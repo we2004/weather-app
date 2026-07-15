@@ -23,7 +23,10 @@ import {
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 
-function WeatherDashboard({ favoriteCityList ,onFavorite} :WeatherDashboardProps ) {
+function WeatherDashboard({
+  favoriteCityList,
+  onFavorite
+}: WeatherDashboardProps) {
   const [weatherSummaryData, setWeatherSummaryData] =
     useState<WeatherSummaryData | null>(null)
   const [singleCardData, setSingleCardsData] = useState<SingleCardData | null>(
@@ -144,6 +147,20 @@ function WeatherDashboard({ favoriteCityList ,onFavorite} :WeatherDashboardProps
               : undefined
           }
         >
+          {weatherSummaryData && (
+            <WeatherSummary
+              city={weatherSummaryData.city}
+              country={weatherSummaryData.country}
+              cityIcon={weatherSummaryData.cityIcon}
+              currentTime={weatherSummaryData.currentTime}
+              mainTemp={weatherSummaryData.mainTemp}
+              weatherDiscription={weatherSummaryData.weatherDiscription}
+              backgroundImageUrl={backgroundImageUrl}
+              onFavorite={onFavorite}
+              favoriteCityList={favoriteCityList}
+            />
+          )}
+
           <div className="weather-details">
             {singleCards?.map((card) => {
               return (
@@ -163,20 +180,6 @@ function WeatherDashboard({ favoriteCityList ,onFavorite} :WeatherDashboardProps
               )
             })}
           </div>
-
-          {weatherSummaryData && (
-            <WeatherSummary
-              city={weatherSummaryData.city}
-              country={weatherSummaryData.country}
-              cityIcon={weatherSummaryData.cityIcon}
-              currentTime={weatherSummaryData.currentTime}
-              mainTemp={weatherSummaryData.mainTemp}
-              weatherDiscription={weatherSummaryData.weatherDiscription}
-              backgroundImageUrl={backgroundImageUrl}
-              onFavorite = {onFavorite}
-              favoriteCityList={favoriteCityList}
-            />
-          )}
         </div>
 
         <h2 className="section-title">3-Hour Forecast</h2>

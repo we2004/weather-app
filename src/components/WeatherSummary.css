@@ -12,7 +12,7 @@
 
   width: 35%;
   padding: 3rem 0;
-  
+
   transition: all 0.3s ease;
 }
 
@@ -37,8 +37,6 @@
   width: 100px;
   height: 100px;
   margin-bottom: 0.5rem;
-
-  
 }
 
 .main-temp {
@@ -78,8 +76,56 @@
   width: 30%;
 }
 
-
 .fav-btn i {
   width: 19px;
   height: 19px;
+}
+
+@media (max-width: 1066px) {
+  .city-general-details {
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  .city-general-details .city-name {
+    width: min(100%, 320px);
+  }
+
+  .fav-btn {
+    width: 140px;
+  }
+}
+
+@media (max-width: 900px) {
+  .city-general-details .city-name {
+    font-size: 1.75rem;
+    width: min(100%, 280px);
+  }
+}
+
+@media (max-width: 730px) {
+  .city-general-details {
+    padding: 1.5rem 1rem;
+  }
+
+  .city-general-details .city-name {
+    font-size: 1.5rem;
+    width: min(100%, 240px);
+  }
+}
+
+@media (max-width: 590px) {
+  .city-general-details {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .city-general-details .city-name {
+    font-size: 1.35rem;
+    width: min(100%, 220px);
+    padding: 7px 10px;
+  }
+
+  .fav-btn {
+    width: 120px;
+  }
 }

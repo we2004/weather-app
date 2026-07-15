@@ -42,3 +42,10 @@
   font-family: var(--font-heading);
   margin: 8px 0;
 }
+
+@media (max-width: 900px) {
+  .day-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}

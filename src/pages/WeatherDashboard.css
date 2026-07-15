@@ -17,7 +17,6 @@
 }
 
 .weather-details {
-  width: 50%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -25,11 +24,10 @@
 }
 
 .forecast {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+  justify-items: center;
 }
 
 .container {
@@ -42,4 +40,84 @@
 
 .content-visible {
   opacity: 1;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  text-shadow: var(--title-shadow);
+
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 1066px) {
+  .today-weather {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .weather-details {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    justify-items: stretch;
+  }
+
+  .forecast {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    justify-items: stretch;
+  }
+}
+
+@media (max-width: 900px) {
+  .today-weather {
+    padding: 1.25rem;
+  }
+
+  .weather-details {
+    gap: 1rem;
+  }
+
+  .forecast {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 730px) {
+  .today-weather {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .weather-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .forecast {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 590px) {
+  .today-weather {
+    padding: 0.875rem;
+    gap: 0.875rem;
+  }
+
+  .weather-details {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+
+  .forecast {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
 }

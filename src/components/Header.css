@@ -1,7 +1,6 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   gap: 3rem;
 
   position: fixed;
@@ -21,6 +20,12 @@
   color: var(--light-background);
   font-style: italic;
   text-shadow: var(--title-shadow);
+}
+
+.header .left-section {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
 }
 
 .search-bar {
@@ -76,4 +81,30 @@
 .about-icon:hover {
   transform: scale(1.5);
   color: rgb(194, 0, 0);
+}
+
+@media (max-width: 730px) {
+  .header {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .header .logo {
+    font-size: 1.3rem;
+  }
+
+  .fav-icon,
+  .home-icon,
+  .about-icon {
+    font-size: 1.15rem;
+  }
+
+  .search-bar input {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 590px) {
+  .header .left-section {
+    gap: 1.5rem;
+  }
 }
