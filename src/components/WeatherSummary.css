@@ -68,11 +68,11 @@
 }
 
 .red-back {
-  background-color: rgb(194, 0, 0);
+  background-color: var(--red-color)
 }
 
 .fav-btn:hover {
-  background-color: rgb(194, 0, 0);
+  background-color: var(--red-color);
   width: 30%;
 }
 

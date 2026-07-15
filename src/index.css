@@ -13,6 +13,8 @@
 
   --font-heading: "Slabo 27px", serif;
   --font-body: "Roboto", sans-serif;
+
+  --red-color: rgb(143, 10, 10);
 }
 
 * {
