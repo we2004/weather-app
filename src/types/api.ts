@@ -15,30 +15,44 @@ export type ForecastApiItem = {
 }
 
 export type CurrentWeatherApiResponse = {
-    weather : [{
-        description: string
-        icon: string
-    }]
-    main : {
-        temp: number
-        feels_like: number
-        humidity: number
-        pressure: number
-        temp_min: number
-        temp_max: number
-    }
-    sys : {
-        country: string
-        sunrise: number
-        sunset: number
-    }
-    wind: {
-        speed: number
-    }
-    dt: number
-    name: string
-    clouds: {
-        all: number
-    }
-    visibility: number
+  weather: {
+    description: string
+    icon: string
+  }[]
+
+  main: {
+    temp: number
+    feels_like: number
+    humidity: number
+    pressure: number
+    temp_min: number
+    temp_max: number
+  }
+  sys: {
+    country: string
+    sunrise: number
+    sunset: number
+  }
+  wind: {
+    speed: number
+  }
+  dt: number
+  name: string
+  clouds: {
+    all: number
+  }
+  visibility: number
 }
+
+export type UnsplashImageApiResponse = {
+  results: {
+    urls: {
+      regular: string
+    }
+  }[]
+}
+
+export type GeoCoordApiResponse = {
+  lat: number
+  lon: number
+}[]

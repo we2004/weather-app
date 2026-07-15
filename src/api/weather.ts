@@ -6,7 +6,12 @@ import {
   type SingleCardData,
   type WeatherSummaryData
 } from "../types/weather"
-import { type CurrentWeatherApiResponse, type ForecastApiItem } from "../types/api"
+import {
+  type CurrentWeatherApiResponse,
+  type ForecastApiItem,
+  type GeoCoordApiResponse,
+  type UnsplashImageApiResponse
+} from "../types/api"
 import { getWeatherIconUrl } from "../utils/getWeatherIconUrl"
 
 const weatherApiKey = import.meta.env.VITE_WEATHER_API_KEY
@@ -71,11 +76,11 @@ export const getCurrentWeatherData = async (lat: number, lon: number) => {
 }
 
 export const getUnsplashImage = async (city: string) => {
-  const response = await axios(
+  const response = await axios<UnsplashImageApiResponse>(
     `${unsplashSearchUrl}?query=${encodeURIComponent(city)}&per_page=1&orientation=landscape&client_id=${unsplashAccessKey}`
   )
 
-  return response.data.results?.[0]?.urls?.regular ?? ""
+  return response.data.results[0].urls.regular
 }
 
 export const getForecast = async (lat: number, lon: number) => {
@@ -99,7 +104,9 @@ export const getForecast = async (lat: number, lon: number) => {
 }
 
 const getCityCoords = async (city: string) => {
-  const response = await axios(`${geoURL}?q=${city}&appid=${weatherApiKey}`)
-  const { lat, lon }: { lat: number; lon: number } = response.data[0]
+  const response = await axios<GeoCoordApiResponse>(
+    `${geoURL}?q=${city}&appid=${weatherApiKey}`
+  )
+  const { lat, lon } = response.data[0]
   return { lat, lon }
 }
