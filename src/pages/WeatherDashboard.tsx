@@ -15,12 +15,10 @@ import {
   type WeatherDashboardProps
 } from "../types/weather"
 import "./WeatherDashboard.css"
-import {
-  getWeatherData,
-  getUnsplashImage
-} from "../api/weather"
+import { getWeatherData, getUnsplashImage } from "../api/weather"
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
+import ErrorCard from "../components/cards/ErrorCard"
 
 function WeatherDashboard({
   favoriteCityList,
@@ -39,6 +37,7 @@ function WeatherDashboard({
   >(null)
   const [backgroundImageUrl, setBackgroundImageUrl] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(false)
   const [searchParams] = useSearchParams()
 
   const search = searchParams.get("search")
@@ -49,17 +48,25 @@ function WeatherDashboard({
 
       setIsLoading(true)
 
-      const {currentWeatherData, forecastData} = await getWeatherData(city)
-      const unsplashImageUrl = await getUnsplashImage(city)
-      
-      const { weatherSummaryData, singleCardData, doubleCardData } = currentWeatherData
+      try {
+        const { currentWeatherData, forecastData } = await getWeatherData(city)
+        const unsplashImageUrl = await getUnsplashImage(city)
 
-      setWeatherSummaryData(weatherSummaryData)
-      setSingleCardsData(singleCardData)
-      setDoubleCardData(doubleCardData)
-      setForecastDays(forecastData)
-      setBackgroundImageUrl(unsplashImageUrl)
-      setIsLoading(false)
+        const { weatherSummaryData, singleCardData, doubleCardData } =
+          currentWeatherData
+
+        setWeatherSummaryData(weatherSummaryData)
+        setSingleCardsData(singleCardData)
+        setDoubleCardData(doubleCardData)
+        setForecastDays(forecastData)
+        setBackgroundImageUrl(unsplashImageUrl)
+        setIsLoading(false)
+      } catch (error) {
+        setError(true)
+        console.log(error)
+      } finally {
+        setIsLoading(false)
+      }
     }
 
     fetchWeatherData()
@@ -136,58 +143,64 @@ function WeatherDashboard({
       <div
         className={`container ${isLoading ? "content-hidden" : "content-visible"}`}
       >
-        <h2 className="section-title">Today's Weather</h2>
+        {error ? (
+          <ErrorCard />
+        ) : (
+          <>
+            <h2 className="section-title">Today's Weather</h2>
 
-        <div
-          className="today-weather"
-          style={
-            backgroundImageUrl
-              ? {
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${backgroundImageUrl})`
-                }
-              : undefined
-          }
-        >
-          {weatherSummaryData && (
-            <WeatherSummary
-              {...weatherSummaryData}
-              backgroundImageUrl={backgroundImageUrl}
-              onFavorite={onFavorite}
-              favoriteCityList={favoriteCityList}
-            />
-          )}
-
-          <div className="weather-details">
-            {singleCards?.map((card) => {
-              return (
-                <WeatherSingleCard
-                  key={card.title}
-                  {...card}
+            <div
+              className="today-weather"
+              style={
+                backgroundImageUrl
+                  ? {
+                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${backgroundImageUrl})`
+                    }
+                  : undefined
+              }
+            >
+              {weatherSummaryData && (
+                <WeatherSummary
+                  {...weatherSummaryData}
+                  backgroundImageUrl={backgroundImageUrl}
+                  onFavorite={onFavorite}
+                  favoriteCityList={favoriteCityList}
                 />
-              )
-            })}
+              )}
 
-            {doubleCards?.map((card) => {
-              return (
-                <WeatherDoubleCard
-                  key={card.topValue}
-                  {...card}
+              <div className="weather-details">
+                {singleCards?.map((card) => {
+                  return (
+                    <WeatherSingleCard
+                      key={card.title}
+                      {...card}
+                    />
+                  )
+                })}
+
+                {doubleCards?.map((card) => {
+                  return (
+                    <WeatherDoubleCard
+                      key={card.topValue}
+                      {...card}
+                    />
+                  )
+                })}
+              </div>
+            </div>
+
+            <h2 className="section-title">3-Hour Forecast</h2>
+
+            <div className="forecast">
+              {forecastDays?.map((day) => (
+                <ForecastDayCard
+                  key={day.day}
+                  {...day}
                 />
-              )
-            })}
-          </div>
-        </div>
-
-        <h2 className="section-title">3-Hour Forecast</h2>
-
-        <div className="forecast">
-          {forecastDays?.map((day) => (
-            <ForecastDayCard
-              key={day.day}
-              {...day}
-            />
-          ))}
-        </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </>
   )
