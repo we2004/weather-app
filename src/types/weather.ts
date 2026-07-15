@@ -36,21 +36,6 @@ export type FavoriteCityData = {
   backgroundImageUrl: string
 }
 
-//api
-export type ForecastApiItem = {
-  dt: number
-  main: {
-    temp: number
-  }
-  weather: {
-    main: string
-    description: string
-    icon: string
-  }[]
-  clouds: {
-    all: number
-  }
-}
 
 //components
 export type WeatherSingleCardProps = {

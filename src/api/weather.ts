@@ -2,11 +2,11 @@ import axios from "axios"
 import dayjs from "dayjs"
 import {
   type DoubleCardData,
-  type ForecastApiItem,
   type ForecastDayCardProps,
   type SingleCardData,
   type WeatherSummaryData
 } from "../types/weather"
+import { type CurrentWeatherApiResponse, type ForecastApiItem } from "../types/api"
 import { getWeatherIconUrl } from "../utils/getWeatherIconUrl"
 
 const weatherApiKey = import.meta.env.VITE_WEATHER_API_KEY
@@ -30,7 +30,7 @@ export const getWeatherData = async (city: string) => {
 }
 
 export const getCurrentWeatherData = async (lat: number, lon: number) => {
-  const response = await axios(
+  const response = await axios<CurrentWeatherApiResponse>(
     `${currentWeatherBaseURL}?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`
   )
 
@@ -96,7 +96,6 @@ export const getForecast = async (lat: number, lon: number) => {
   )
 
   return forecast
-  // console.log(response.data)
 }
 
 const getCityCoords = async (city: string) => {
