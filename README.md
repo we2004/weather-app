@@ -13,7 +13,7 @@ A React weather dashboard that fetches real-time weather data from OpenWeatherMa
 - Search weather by city name
 - Current weather conditions with detailed metrics
 - 7-day 3-hour forecast display
-- Save and manage favorite cities with persistent storage
+- Save and manage favorite cities
 - Dynamic background images from Unsplash
 - Weather metrics including temperature, humidity, wind speed, pressure, visibility, and cloudiness
 - Sunrise/sunset times and min/max temperature display
@@ -28,8 +28,8 @@ A React weather dashboard that fetches real-time weather data from OpenWeatherMa
 - TypeScript
 - Vite
 - React Router DOM
-- CSS3
 - Axios
+- CSS3
 - Day.js
 - Bootstrap Icons
 - OpenWeatherMap API (current weather, geolocation, forecast)
@@ -70,7 +70,7 @@ weather-app/
 │   │   ├── FavoriteCity.css
 │   │   ├── FavoriteCity.tsx
 │   │   ├── NotFound.tsx
-│   │   ├─�� WeatherDashboard.css
+│   │   ├─  WeatherDashboard.css
 │   │   └── WeatherDashboard.tsx
 │   ├── types/
 │   │   ├── api.ts
