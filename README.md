@@ -39,8 +39,6 @@ A React weather dashboard that fetches real-time weather data from OpenWeatherMa
 
 ```
 weather-app/
-├── dist/
-├── node_modules/
 ├── public/
 │   └── web-icon.svg
 ├── src/
@@ -82,7 +80,6 @@ weather-app/
 │   ├── App.tsx
 │   ├── index.css
 │   └── main.tsx
-├── .env
 ├── .env.example
 ├── .gitignore
 ├── eslint.config.js
