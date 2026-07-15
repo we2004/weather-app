@@ -173,7 +173,3 @@ While building this project I practiced:
 
 ![Favorite Cities](screenshots/favorites.png)
 
-### Mobile View
-
-![Dashboard Mobile](screenshots/dashboard-mobile.png)
-![Favorites Mobile](screenshots/favorite-mobile.png)
