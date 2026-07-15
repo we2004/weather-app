@@ -1,10 +1,13 @@
 import React from "react"
 
-export type WeatherSingleCardProps = {
-  icon: React.ReactNode
-  title: string
-  value: number
-  temp?: boolean
+//domain models
+export type WeatherSummaryData = {
+  city: string
+  country: string
+  cityIcon: string
+  mainTemp: number
+  weatherDiscription: string
+  currentTime: string
 }
 
 export type SingleCardData = {
@@ -17,14 +20,6 @@ export type SingleCardData = {
   visibility: number
 }
 
-export type WeatherDoubleCardProps = {
-  topIcon: React.ReactNode
-  topValue: string
-  bottomIcon: React.ReactNode
-  bottomValue: string
-  temp?: boolean
-}
-
 export type DoubleCardData = {
   minTemp: number
   maxTemp: number
@@ -32,15 +27,16 @@ export type DoubleCardData = {
   sunset: number
 }
 
-export type ForecastDayCardProps = {
-  day: string
-  dayIcon: string
-  dayDescription: string
-  dayCloud: number
-  dayTemp: number
-  dayRain:number
+export type FavoriteCityData = {
+  city: string
+  country: string
+  currentTime: string
+  weatherDiscription: string
+  mainTemp: number
+  backgroundImageUrl: string
 }
 
+//api
 export type ForecastApiItem = {
   dt: number
   main: {
@@ -56,32 +52,38 @@ export type ForecastApiItem = {
   }
 }
 
-export type WeatherSummaryProps = {
-  city: string
-  country: string
-  cityIcon: string
-  mainTemp: number
-  weatherDiscription: string
-  currentTime: string
+//components
+export type WeatherSingleCardProps = {
+  icon: React.ReactNode
+  title: string
+  value: number
+  temp?: boolean
+}
+
+export type WeatherDoubleCardProps = {
+  topIcon: React.ReactNode
+  topValue: string
+  bottomIcon: React.ReactNode
+  bottomValue: string
+  temp?: boolean
+}
+
+export type ForecastDayCardProps = {
+  day: string
+  dayIcon: string
+  dayDescription: string
+  dayCloud: number
+  dayTemp: number
+}
+
+export type WeatherSummaryProps = WeatherSummaryData & {
   backgroundImageUrl: string
   onFavorite: (favoriteCityData: FavoriteCityData) => void
   favoriteCityList: FavoriteCityData[]
 }
 
-export type WeatherSummaryData = Omit<WeatherSummaryProps, "backgroundImageUrl">
-
-export type FavoriteCityData = {
-  city: string
-  country: string
-  currentTime: string
-  weatherDiscription: string
-  mainTemp: number
-  backgroundImageUrl: string
-}
-
 export type FavoriteCityCardProps = FavoriteCityData & {
   onRemoveFavorite: (city: string) => void
-  backgroundImageUrl: string
 }
 
 export type WeatherDashboardProps = {
@@ -93,4 +95,3 @@ export type FavoriteCityProps = {
   onRemoveFavorite: (city: string) => void
   favoriteCityList: FavoriteCityData[]
 }
-

@@ -11,11 +11,11 @@ transition: opacity 0.3s ease;
 }
 
 .spinner {
-  width: 48px;
-  height: 48px;
+  width: 55px;
+  height: 55px;
 
-  border: 5px solid var(--text-background);
-  border-top: 5px solid var(--secondary-dark-background);
+  border: 2px solid var(--text-background);
+  border-top: 2px solid var(--secondary-dark-background);
 
   border-radius: 50%;
 
