@@ -8,3 +8,9 @@
     align-items: center;
     gap: 20px;
 }
+
+.empty-msg {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 100px;
+}

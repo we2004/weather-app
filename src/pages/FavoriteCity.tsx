@@ -18,7 +18,7 @@ function FavoriteCity({
       <div className="page">
         <h2 className="section-title favorite-page">Favorite Cities</h2>
 
-        <div className="favorite-city-container">
+        {favoriteCityList.length > 0? (<div className="favorite-city-container">
           {favoriteCityList.map((item,idx) => (
             <FavoriteCityCard
               key={`${item.city}-${item.currentTime}-${idx}`}
@@ -26,7 +26,8 @@ function FavoriteCity({
               onRemoveFavorite={onRemoveFavorite}
             />
           ))}
-        </div>
+        </div>) : (<p className="empty-msg">Search and Save Your Favorite Cities!!</p>)}
+        
       </div>
     </>
   )
