@@ -4,7 +4,7 @@ import "./About.css"
 const profileName = "Wesal Ismail"
 const role = "Software Engineering Student - Frontend Developer"
 const aboutText =
-  "This weather app helps you quickly check the day’s forecast, explore city details, and keep your favorite places close at hand."
+  "This weather app helps you quickly check the day’s forecast, explore city details, and keep your favorite places close."
 const socialLinks = [
   {
     label: "LinkedIn",
@@ -34,7 +34,7 @@ function About() {
         <div className="about-page">
           <section className="about-card">
             <span className="about-badge">About this app</span>
-            <h2 className="section-title about-title">Weather made simple</h2>
+            <h2 className="section-title about-title">Weather App</h2>
             <p className="about-text">{aboutText}</p>
 
             <div className="profile-card">
