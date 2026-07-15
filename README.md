@@ -149,13 +149,6 @@ npm run dev
 
 6. Open the URL provided in the terminal (typically `http://localhost:5173`) in your browser.
 
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run lint` - Run ESLint
-- `npm run preview` - Preview production build
-
 ## What I Learned
 
 While building this project I practiced:
@@ -165,9 +158,8 @@ While building this project I practiced:
 - Fetching and transforming data from multiple external APIs
 - Using TypeScript to model application and API data types
 - Implementing loading and error states for better UX
-- Creating responsive layouts with CSS media queries
-- Persisting user data with browser local storage
 - Client-side routing with React Router DOM
+- Creating responsive layouts with CSS media queries
 - Deploying a Vite application to Netlify
 - Date/time formatting with Day.js
 
