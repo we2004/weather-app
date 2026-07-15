@@ -1,0 +1,25 @@
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.error-card {
+  width: min(100%, 620px);
+  background-color: var(--main-card-background);
+  color: var(--light-background);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--dark-shadow);
+
+  transition: all ease 0.15s;
+}
+
+
+.error-title {
+  margin-bottom: 0.5rem;
+}
+.error-text {
+  margin-bottom: 0;
+}
