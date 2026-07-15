@@ -16,8 +16,20 @@ const forecastURL = import.meta.env.VITE_WEATHER_FORECAST_URL
 const unsplashAccessKey = import.meta.env.VITE_UNSPLASH_API_ACCESS_KEY
 const unsplashSearchUrl = import.meta.env.VITE_UNSPLASH_SEARCH_URL
 
-export const getCurrentWeatherData = async (city: string) => {
+export const getWeatherData = async (city: string) => {
   const { lat, lon } = await getCityCoords(city)
+  const [currentWeatherData, forecastData] = await Promise.all([
+    getCurrentWeatherData(lat, lon),
+    getForecast(lat, lon)
+  ])
+
+  return {
+    currentWeatherData,
+    forecastData
+  }
+}
+
+export const getCurrentWeatherData = async (lat: number, lon: number) => {
   const response = await axios(
     `${currentWeatherBaseURL}?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`
   )
@@ -66,8 +78,7 @@ export const getUnsplashImage = async (city: string) => {
   return response.data.results?.[0]?.urls?.regular ?? ""
 }
 
-export const getForecast = async (city: string) => {
-  const { lat, lon } = await getCityCoords(city)
+export const getForecast = async (lat: number, lon: number) => {
   const response = await axios(
     `${forecastURL}?lat=${lat}&lon=${lon}&cnt=7&appid=${weatherApiKey}&units=metric`
   )

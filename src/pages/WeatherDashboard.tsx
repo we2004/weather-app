@@ -16,8 +16,7 @@ import {
 } from "../types/weather"
 import "./WeatherDashboard.css"
 import {
-  getCurrentWeatherData,
-  getForecast,
+  getWeatherData,
   getUnsplashImage
 } from "../api/weather"
 import { useEffect, useState } from "react"
@@ -46,17 +45,18 @@ function WeatherDashboard({
   useEffect(() => {
     const fetchWeatherData = async () => {
       const city = search || "tokyo"
-      setIsLoading(true)
-      const { weatherSummaryData, singleCardData, doubleCardData } =
-        await getCurrentWeatherData(city)
 
-      const forecast = await getForecast(city)
+      setIsLoading(true)
+
+      const {currentWeatherData, forecastData} = await getWeatherData(city)
       const unsplashImageUrl = await getUnsplashImage(city)
+      
+      const { weatherSummaryData, singleCardData, doubleCardData } = currentWeatherData
 
       setWeatherSummaryData(weatherSummaryData)
       setSingleCardsData(singleCardData)
       setDoubleCardData(doubleCardData)
-      setForecastDays(forecast)
+      setForecastDays(forecastData)
       setBackgroundImageUrl(unsplashImageUrl)
       setIsLoading(false)
     }
