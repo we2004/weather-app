@@ -76,19 +76,6 @@
     grid-template-columns: repeat(5, minmax(0, 1fr));
     justify-items: stretch;
   }
-
-  .city-general-details {
-    width: 100%;
-    padding: 2rem 1rem;
-  }
-
-  .city-general-details .city-name {
-    width: min(100%, 320px);
-  }
-
-  .fav-btn {
-    width: 140px;
-  }
 }
 
 @media (max-width: 900px) {
@@ -108,11 +95,6 @@
     width: 100%;
     max-width: 100%;
   }
-
-  .city-general-details .city-name {
-    font-size: 1.75rem;
-    width: min(100%, 280px);
-  }
 }
 @media (max-width: 730px) {
   .today-weather {
@@ -127,15 +109,6 @@
 
   .forecast {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .city-general-details {
-    padding: 1.5rem 1rem;
-  }
-
-  .city-general-details .city-name {
-    font-size: 1.5rem;
-    width: min(100%, 240px);
   }
 }
 
@@ -152,20 +125,6 @@
 
   .forecast {
     grid-template-columns: 1fr;
-  }
-
-  .city-general-details {
-    padding: 1.25rem 0.75rem;
-  }
-
-  .city-general-details .city-name {
-    font-size: 1.35rem;
-    width: min(100%, 220px);
-    padding: 7px 10px;
-  }
-
-  .fav-btn {
-    width: 120px;
   }
 
   .section-title {
