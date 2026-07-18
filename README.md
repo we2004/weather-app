@@ -165,6 +165,7 @@ While building this project I practiced:
 ### Dashboard
 
 ![Dashboard](screenshots/weatherDashboard.png)
+![Forecast](screenshots/forcast.png)
 
 ### Favorite Cities
 
